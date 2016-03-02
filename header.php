@@ -36,6 +36,7 @@
       </nav>
     </div>
   </header>
+  
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">Title</span>
     <nav class="mdl-navigation">
@@ -47,3 +48,5 @@
     <div class="page-content"><!-- Your content goes here --></div>
   </main>
 </div>
+</body>
+</html>
