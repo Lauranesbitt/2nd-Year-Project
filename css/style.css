@@ -1,0 +1,87 @@
+/* Old Login/Register Styling */
+/* #odd{
+  background-color:#4e596b;
+  color:white;
+}
+
+#even{
+  background-color: #FFA500; 
+   color:white;
+}
+
+#white{
+  background-color: white; 
+   color:white;
+}
+
+
+#loginform, #registerform{
+    background-color: #3f51b5;
+    padding: 20px;
+}
+
+#logtab, #regtab{
+    color: purple;
+    text-decoration: none;
+}
+
+#logtab:hover, #regtab:hover{
+    color:white;
+    cursor: pointer;
+    color: blue;
+}
+
+#loginbutton, #registerbutton{
+    cursor: pointer;
+}
+
+#trynowbutton {
+    text-align: center;
+}
+*/
+/* Main styling */
+body {  
+	background:#f8f8f8;	
+	background-size:100% 100%;
+	color: #777;
+	font-family: 'Open Sans', sans-serif;
+	font-weight:100;
+	font-size:1.4em;
+	line-height:1.6em;
+	padding:0 0 0;
+    overflow-x: hidden;
+	}
+footer{
+    width:100%;
+    color:#999;
+    background-color:#f9f9f9;
+    padding:1em;
+    text-align: center;
+}
+section{
+    background-color:#fff;
+}
+.bookingmanager{
+    width:80%;
+    margin: 0 auto;
+}
+.centered{
+    text-align:center;
+}
+
+/* Login/Register field styling */
+.login-register{
+    padding: 2em;
+    text-align: center;
+}
+
+/*Material Design overwrites */
+
+.mdl-layout-title a{
+    color: #000;
+    text-decoration: none;
+}
+.mdl-layout-title a:hover{
+    color: #4ECDC4;
+    transition: color 0.5s ease;
+}

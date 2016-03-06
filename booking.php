@@ -1,50 +1,30 @@
-<!DOCTYPE html>
-
-<?php include 'database.php'; ?>
-<?php include 'header.php'?>
-
-
-<html>
-
-<head>
-    <link type='text/css' rel='stylesheet' href='style.css' />
-    <title>Booking</title>
-</head>
-
-<body>
-    <div id="Booking" style="float:right" "border-style: solid" "border-width: 20px" "padding=10px">
-        <!--"border-color:#b4bbe4"-->
-        <!--#3f51b5-->
-        <div class="header">
-            <h3>Booking</h3>
-        </div>
-        <form id="book" action="projects.sql" method="post">
-            <label for="username">Username/Email:</label>
-            </br>
-            <input type="text" name="username" class="required" placeholder="name@example.com" />
-            </p>
-
-            <label for="time">Time:</label>
-            </br>
-            <input type="time" name="time" class="required" placeholder="13:30" />
-            </p>
-
-            <label for="date">Date:</label>
-            </br>
-            <input type="date" name="date" class="required" placeholder="dd/mm/yy" />
-            </p>
-
-
-            <label for="room">Room:</label>
-            </br>
-            <input type="room" name="room" class="required" placeholder="SCR3" />
-            </p>
-            <input type="submit" value="Confirm" />
-
-
+<!-- This includes the header section to the top of the webpage -->
+<?php include 'header.php'; include_once 'bookings/addBooking.php'; ?>
+ 
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--4-col"></div>
+    <div class="mdl-cell mdl-cell--4-col mdl-shadow--2dp">
+      <section class="login-register">
+        <h3>Book a room</h3>
+        <hr/>
+        <!-- add booking form -->
+        <form method="post"> 
+        
+          <label for="name">Name:</label></br>
+          <input name="name" type="text" required=""></br>
+          
+          <label for="description">Description:</label></br>
+          <textarea name="description" rows="6" cols="32" maxlength="150" required=""/></textarea></br>
+          
+          <label for="date">Date:</label></br>
+          <input name="date"  type="date" required=""></br>
+          
+          <label for="capacity">Capacity:</label></br>
+          <input name="capacity" type="number" required=""></br>
+          
+          </br><input type="submit" name="btn-addbooking" value="Create" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
         </form>
-    </div>
-    </div>
-</body>
-
-</html>
+      </section><!-- section end -->
+    </div><!-- column end -->
+    <div class="mdl-cell mdl-cell--4-col"></div>
+  </div>

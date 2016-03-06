@@ -1,53 +1,57 @@
-<!DOCTYPE html>
-<?php include 'database.php';?>
-<?php include 'header.php'?>
-<html>
 
-<head>
-  <link type='text/css' rel='stylesheet' href='style.css' />
-  <title>Login</title>
-</head>
+<?php
+include_once 'classes/dbconnect.php';
+session_start();
 
-<body>
+if(isset($_SESSION['user'])!="")
+{
+ echo "<script>alert('You are already logged in');</script>";
+ echo "<script>window.location = 'booking.php';</script>";
+}
+if(isset($_POST['btn-login']))
+{
+ $email = mysql_real_escape_string($_POST['email']);
+ $password = mysql_real_escape_string($_POST['password']);
+ $res=mysql_query("SELECT * FROM registered WHERE email='$email'");
+ $row=mysql_fetch_array($res);
+ if($row['password']==md5($password))
+ {
+  $_SESSION['user'] = $row['username'];
+  header('booking.php');
+  echo "<script type='text/javascript'>alert('You're logged in!');</script>";
+ }
+ else
+ {
+  ?>
+        <script>alert('Wrong details entered, please try again!');</script>
+        <?php
+ }
+ 
+}
+?>
+<?php include 'header.php';?>
   <div class="mdl-grid">
-    <div class="mdl-cell mdl-cell--1-col">1</div>
-    <div class="mdl-cell mdl-cell--1-col">1</div>
-    <div class="mdl-cell mdl-cell--1-col">1</div>
-    <div class="mdl-cell mdl-cell--1-col">1</div>
-    <div class="mdl-cell mdl-cell--1-col">1</div>
-    <div class="mdl-cell mdl-cell--1-col">1</div>
-    <div class="mdl-cell mdl-cell--1-col">1</div>
-    <div class="mdl-cell mdl-cell--1-col">1</div>
-    <div class="mdl-cell mdl-cell--1-col">1</div>
-    <div class="mdl-cell mdl-cell--3-col">
-      <div id="login" style="float:right" "border-style: solid" "border-width: 20px" "padding=10px">
-        <!--"border-color:#b4bbe4"-->
-        <!--#3f51b5-->
-
-        <div class="header">
-          <h3>Login <a href="register.php">Register</a></h3>
-        </div>
-        <form id="reg" action="index.php" method="post">
-          <label for="username">Username/Email:</label>
-          </br>
-          <input type="text" name="username" class="required" placeholder="name@example.com" />
-          </p>
-
-          <label for="password">Password:</label>
-          </br>
-          <input type="password" name="password" class="required" placeholder="Pa55w.rd" />
-          </p>
-
-          <button id="loginbutton" type="submit">Login</button>
-          <a href="Booking.php"></a>
-
+    <div class="mdl-cell mdl-cell--4-col"></div>
+    <div class="mdl-cell mdl-cell--4-col mdl-shadow--2dp">
+      <section class="login-register">
+        <h3>User Login</h3>
+        <hr/>
+        <!-- login form -->
+        <form id="loginform" action="" method="post">
+          <label for="username">Username/Email:</label><br/>
+          <input type="text" name="email" class="required" placeholder="name@example.com" /><br/>
+          
+          <label for="password">Password:</label><br/>
+          <input type="password" name="password" class="required" placeholder="Pa55w.rd" /><br/><br/>
+          
+          <button type="submit" name="btn-login" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Login</button><br/><br/>
           <label for="remember">Remember login:</label>
+          
           <input type="checkbox" value="remember" />
-        </form>
-      </div>
-    </div>
+        </form><!-- ./login form end -->
+      </section><!-- section end-->
+    </div><!-- column end -->
+    <div class="mdl-cell mdl-cell--4-col"></div>
   </div>
-  </div>
-</body>
-
-</html>
+  
+<?php include 'footer.php'; ?>
