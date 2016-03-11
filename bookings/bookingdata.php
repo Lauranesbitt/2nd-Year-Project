@@ -1,5 +1,5 @@
 <?php
-/*include "connect.php";
+/*include "classes/dbconnect.php";
 function update_db($name, $time,$date, $room){
    $conn = new projects('mysql:host=locahost; dbname=projects');
    $stmt = $conn->prepare("UPDATE table ");

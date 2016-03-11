@@ -1,20 +1,23 @@
+
 <?php
-include 'classes/fetchbookings.php';
+include 'api/DbBookings.php';
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 $search_output = "";
 
+$db = new DbBookings();
+
 if(isset($_GET['searchquery']) && $_GET['searchquery'] != ''){
   $sname = $_GET['searchquery'];
-  $result = $db->getBookings($sname);
+  $result = $db->viewBookings($sname);
   
   if($result != false){
-    echo json_encode($result[0]['NAME']);
+    echo '<b><u>Table Description:</u></b> <br/>';
+    echo json_encode($result[0]['description']);
   }else{
     echo "did not work";
   }
 }
-
 
 
 // if(isset($_POST['searchquery']) && $_POST['searchquery'] != ""){
@@ -43,14 +46,10 @@ if(isset($_GET['searchquery']) && $_GET['searchquery'] != ''){
 // 	}
 // }
 ?>
-<html>
-<head>
-</head>
-<body>
 <h2>Search the Exercise Tables</h2>
-<form method="GET">
+<form method="get">
   Search: <input name="searchquery" type="text" size="70" maxlength="88">
-  <input name="myBtn" type="submit">
+  <input name="getBookings" type="submit">
   <br><br>
   Search In:
   <select name="filter">
@@ -62,5 +61,4 @@ if(isset($_GET['searchquery']) && $_GET['searchquery'] != ''){
 <div>
 <?php echo $search_output; ?>
 </div>
-</body>
-</html>
+

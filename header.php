@@ -5,6 +5,7 @@ session_start(); ?>
 <html>
 
 <head>
+  <link rel="icon" href="images/logo2.png" type="image/png" sizes="16x16 32x32">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
   <link rel="stylesheet" href="https://code.getmdl.io/1.1.2/material.indigo-blue.min.css" />
@@ -13,7 +14,7 @@ session_start(); ?>
   <link type="text/css" rel="stylesheet" href="../css/landingPage.css" />
   <!-- custom icons via FontAwesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
+  <title>Dragon Room Bookings</title>
 </head>
 
 <body>
@@ -23,9 +24,9 @@ session_start(); ?>
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
       <!-- Title -->
-      <a href="https://itp-module-x14346081.c9users.io/index.php">
+      <a href="index.php">
         <span class="mdl-layout-title">
-          <img src="<!-- add logo here-->" alt="logo"/>
+          <img src="images/logo2.png" alt="logo" style="width:15%;height:15%;"/>
           Dragon Room Booking
         </span>
       </a>
@@ -33,9 +34,9 @@ session_start(); ?>
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation. We hide it in small screens. -->
       <nav class="mdl-navigation mdl-layout--large-screen-only">
-      <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/login.php">Login</a>
-      <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/register.php">Register</a>
-      <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/booking.php">Bookings</a>
+      <a class="mdl-navigation__link" href="login.php">Login</a>
+      <a class="mdl-navigation__link" href="register.php">Register</a>
+      <a class="mdl-navigation__link" href="booking.php">Bookings</a>
       </nav>
     </div>
   </header>

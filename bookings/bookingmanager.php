@@ -1,5 +1,5 @@
-<?php include '../header.php' ?>
-
+<?php include '../header.php'; ?>
+<title>Booking Manager</title>
 <section class="bookingmanager">
   
     <!-- Calendar -->

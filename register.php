@@ -2,7 +2,6 @@
 <?php include_once 'classes/dbconnect.php'; include_once 'classes/register.php'; ?>
 <!-- This includes the header section to the top of the webpage -->
 <?php include 'header.php' ?>
-
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--3-col"></div>
     <!-- Registration section -->
@@ -38,11 +37,11 @@
           <div class="mdl-grid">
             <div class="mdl-cell mdl-cell--6-col">
               <label for="password">Password:</label><br/>
-              <input type="text" name="password" class="required" placeholder="p@55w0rd" /><br/>
+              <input type="password" name="password" class="required" placeholder="p@55w0rd" /><br/>
             </div>
             <div class="mdl-cell mdl-cell--6-col">
               <label for="confirmpassword">Confirm Password:</label><br/>
-              <input type="text" name="confirmpassword" class="required" placeholder="p@55w0rd" /><br/>
+              <input type="password" name="confirmpassword" class="required" placeholder="p@55w0rd" /><br/>
             </div>
           </div>
           <!-- row 4 -->

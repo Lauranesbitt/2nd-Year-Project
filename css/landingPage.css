@@ -161,18 +161,20 @@
   		box-sizing:border-box;
 	}
 	.box-right .image-box.img{
-		background: url("http://www.placehold.it/1000") 50% 0 / cover no-repeat;	
+		background: url("../images/manage3.png") 100% 100% / cover no-repeat;	
 	}
-	.box-right .image-box.img2{
-		background: url('http://www.placehold.it/1000') 50% 0 / cover no-repeat;	
+	.box-left .image-box.img2{
+		background: url('../images/map.png') 100% 100% / cover no-repeat;	
+	}
+	.box-right .image-box.img3{
+		background: url('../images/view3.png') 100% 100% / cover no-repeat;	
 	}
 	
 	.box-right .inner {
 		padding:0 6em 0 0;
 	}
 	
-	.box-left .image-box {
-		background: url('http://www.placehold.it/1000') 50% 0 / cover no-repeat;	
+	.box-left .image-box {	
 		width:50%;
 		left:0;
   		top:0;	
@@ -220,6 +222,9 @@
 		color:#fff;	
 		color:rgba(255,255,255,0.7);
 	}
+	.sm-show {
+		display: none;
+	}
  /* Extra Small Devices, Phones */ 
     @media only screen and (max-width : 840px) {
 		
@@ -228,7 +233,7 @@
 		display:none;
 	}
 	/* Shows content on mobile only */
-	sm-show{
+	.sm-show{
 		display:block;
 	}
   }

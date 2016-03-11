@@ -1,6 +1,5 @@
 <!-- This includes the header section to the top of the webpage -->
 <?php include 'header.php'; include_once 'bookings/addBooking.php'; ?>
- 
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--4-col"></div>
     <div class="mdl-cell mdl-cell--4-col mdl-shadow--2dp">
