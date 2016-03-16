@@ -8,7 +8,7 @@ $search_output = "";
 $db = new DbBookings();
 
 if(isset($_GET['searchquery']) && $_GET['searchquery'] != ''){
-  $sname = $_GET['searchquery'];
+  $sname= $_GET['searchquery'];
   $result = $db->viewBookings($sname);
   
   if($result != false){

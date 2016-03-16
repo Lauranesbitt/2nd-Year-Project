@@ -21,6 +21,10 @@
           <label for="capacity">Capacity:</label></br>
           <input name="capacity" type="number" required=""></br>
           
+          <label for="specification">Room specifications:</label></br>
+          <textarea name="specification" rows="6" cols="32" maxlength="150" required=""/></textarea></br>
+          
+          
           </br><input type="submit" name="btn-addbooking" value="Create" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
         </form>
       </section><!-- section end -->

@@ -13,3 +13,10 @@ function update_db($name, $time,$date, $room){
  }
 
 ?>
+
+
+//KEVIN-DON'T DELETE//
+</*if (image < 1mb){
+    cancel upload
+}
+*/

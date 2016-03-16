@@ -15,33 +15,33 @@
           <div class="mdl-grid">
             <div class="mdl-cell mdl-cell--6-col">
               <label for="firstname">First name:</label><br/>
-              <input type="text" name="firstname" class="required" placeholder="John" />
+              <input type="text" name="firstname" required="" placeholder="John" />
             </div>
             <div class="mdl-cell mdl-cell--6-col">
               <label for="lastname">Last Name:</label><br/>
-              <input type="text" name="lastname" class="required" placeholder="Smith" />
+              <input type="text" name="lastname" required="" placeholder="Smith" />
             </div>
           </div>
           <!-- row 2 -->
           <div class="mdl-grid">
             <div class="mdl-cell mdl-cell--6-col">
               <label for="email">Email:</label><br/>
-              <input type="text" name="email" class="required" placeholder="name@gmail.com" /><br/>
+              <input type="email" name="email" required="" placeholder="name@gmail.com" /><br/>
             </div>
             <div class="mdl-cell mdl-cell--6-col">
               <label for="username">Username:</label><br/>
-              <input type="text" name="username" class="required" placeholder="name@gmail.com" /><br/>
+              <input type="text" name="username" required="" placeholder="name@gmail.com" /><br/>
             </div>
           </div>
           <!-- row 3 -->
           <div class="mdl-grid">
             <div class="mdl-cell mdl-cell--6-col">
               <label for="password">Password:</label><br/>
-              <input type="password" name="password" class="required" placeholder="p@55w0rd" /><br/>
+              <input type="password" name="password" required="" placeholder="p@55w0rd" /><br/>
             </div>
             <div class="mdl-cell mdl-cell--6-col">
               <label for="confirmpassword">Confirm Password:</label><br/>
-              <input type="password" name="confirmpassword" class="required" placeholder="p@55w0rd" /><br/>
+              <input type="password" name="confirmpassword" required="" placeholder="p@55w0rd" /><br/>
             </div>
           </div>
           <!-- row 4 -->

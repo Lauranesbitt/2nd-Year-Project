@@ -14,7 +14,7 @@ class DbBookings{
     
     
     public function viewBookings($name){
-        $query = "SELECT * FROM bookings WHERE NAME = '$name'";
+        $query = "SELECT * FROM bookings WHERE name = '$name'";
         $con = $this->Connect();
         
         $result = mysqli_query($con, $query);

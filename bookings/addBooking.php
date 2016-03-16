@@ -13,8 +13,9 @@ if(isset($_POST['btn-addbooking']))
  $description = mysql_real_escape_string($_POST['description']);
  $date = mysql_real_escape_string($POST['date']);
  $capacity = mysql_real_escape_string($_POST['capacity']);
- $owner = $_SESSION['user'];
- if(mysql_query("INSERT INTO bookings (name, description, date, capacity, owner) VALUES ('$name','$description','$date','$capacity','$owner')"))
+$specification = mysql_real_escape_string($_POST['specification']);
+  $owner = $_SESSION['user'];
+ if(mysql_query("INSERT INTO bookings (name, description, date, capacity, specification, owner) VALUES ('$name','$description','$date','$capacity','$specification','$owner')"))
  {
   
         echo"<script>alert('successfully added room ');</script>";

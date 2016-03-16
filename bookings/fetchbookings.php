@@ -3,7 +3,7 @@ include_once 'classes/dbconnect.php';
     
     function getBookings($name){
         $con = $this->connect();
-        $query = "SELECT * FROM bookings WHERE NAME='$name'";
+        $query = "SELECT * FROM bookings WHERE name ='$name'";
         
         $res = mysqli_query($con, $query); //query for result
         
