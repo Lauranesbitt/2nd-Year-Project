@@ -1,6 +1,8 @@
 <!-- database connection is being established -->
-<?php include_once 'classes/dbconnect.php';
-session_start(); ?>
+<?php
+include_once 'classes/dbconnect.php';
+session_start(); 
+?>
 <!DOCTYPE html>
 <html>
 
@@ -24,9 +26,9 @@ session_start(); ?>
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
       <!-- Title -->
-      <a href="index.php">
+      <a href="https://itp-module-x14346081.c9users.io/index.php">
         <span class="mdl-layout-title">
-          <img src="images/logo2.png" alt="logo" style="width:15%;height:15%;"/>
+          <img src="https://itp-module-x14346081.c9users.io/images/logo2.png" alt="logo" style="width:15%;height:15%;"/>
           Dragon Room Booking
         </span>
       </a>
@@ -34,19 +36,43 @@ session_start(); ?>
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation. We hide it in small screens. -->
       <nav class="mdl-navigation mdl-layout--large-screen-only">
-      <a class="mdl-navigation__link" href="login.php">Login</a>
-      <a class="mdl-navigation__link" href="register.php">Register</a>
-      <a class="mdl-navigation__link" href="booking.php">Bookings</a>
-      </nav>
+        <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/index.php">Available Rooms</a>
+        <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/map.php">Floor Plan</a>
+        <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/bookings/bookingmanager.php">My Bookings</a>
+        <?php 
+        if(isset($_SESSION['user'])!=""){
+          ?>
+         <a class="mdl-navigation__link" <p><strong><font color="white">Logged in as: <?php echo $_SESSION['user']; ?></font></strong></p></a>
+         <a href="https://itp-module-x14346081.c9users.io/logout.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Logout</a>
+      <?php } ?>
+      <?php 
+        if(isset($_SESSION['user'])==""){
+          ?>
+          <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/login.php">Login</a>
+          <!--<a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/register.php">Register</a>-->
+      <?php } ?>  
+      <!--<?php 
+        if(isset($_SESSION['user'])!=""){
+          ?>
+        <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/room.php">Book a Room*</a> This should be part of My Bookings
+        <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/booking.php">Add a Room*</a> to be removed once my bookings is complete
+      <?php } ?>-->  
+      
+     </nav>
     </div>
   </header>
   <!-- content open -->
   <main class="mdl-layout__content">
     <div class="page-content">
       <!-- if logged in, username will appear -->
-  <div class="mdl-grid">
+  <!--<div class="mdl-grid">
     <div class="mdl-cell mdl-cell--12-col">
       <h2 class="centered">
-        Logged in as: <?php echo "".$_SESSION['user']; ?>&nbsp;&nbsp;<a href="logout.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Logout</a>
+      <?php 
+        if(isset($_SESSION['user'])!=""){
+          ?>
+          <p><strong>Logged in as: <?php echo $_SESSION['user']; ?></strong></p>
+         <a href="logout.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Logout</a>
+      <?php } ?>-->
       </h2></div>
   </div>

@@ -2,8 +2,8 @@
 session_start();
 if(isset($_SESSION['user'])!="")
 {
- echo "<script>alert('You are already logged in');</script>";
- echo "<script>window.location = 'booking.php';</script>";
+ echo "<script>alert('You are already registered and logged in');</script>";
+ echo "<script>window.location = 'index.php';</script>";
 }
 include_once 'classes/dbconnect.php';
 

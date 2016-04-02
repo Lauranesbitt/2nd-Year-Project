@@ -13,8 +13,8 @@ class DbBookings{
     }
     
     
-    public function viewBookings($name){
-        $query = "SELECT * FROM bookings WHERE name = '$name'";
+    public function viewBookings(){
+        $query = "SELECT DESCRIPTION FROM rooms";
         $con = $this->Connect();
         
         $result = mysqli_query($con, $query);
@@ -24,14 +24,11 @@ class DbBookings{
             while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
                 $rows[]= $row;
             }
-            
+ 
             return $rows;
         }else{
             return false;
         }
     }
-    
-    
-    
 }
-
+    ?>

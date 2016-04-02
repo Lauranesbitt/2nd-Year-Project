@@ -1,9 +1,9 @@
 <!-- no need to add the <html> or <body> they are included in the header which is inserted below this comment -->
 <?php include 'header.php'; ?>
-	<div class="mdl-grid panel2">
+<div class="mdl-grid panel2">
 	<div class="mdl-cell mdl-cell--2-col"></div>
 	<div class="mdl-cell mdl-cell--8-col">
-	<?php include 'bookings/viewBookings.php';?>
+		<?php include 'bookings/viewBookings.php';?>
 	</div>
 	<div class="mdl-cell mdl-cell--2-col"></div>
 </div>
@@ -88,7 +88,7 @@
 
 					<div class="clearfix"></div>
 
-					<a href="booking.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"><span aria-hidden="true" class="arrow_carrot-up_alt2" ></span> View Campus</a>
+					<a href="map.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"><span aria-hidden="true" class="arrow_carrot-up_alt2" ></span> View Campus</a>
 					<!--<a href="features.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light"><span aria-hidden="true" class="arrow_carrot-right_alt2" ></span> Learn More</a>-->
 
 					<div class="clearfix"></div>

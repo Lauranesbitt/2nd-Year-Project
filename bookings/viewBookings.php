@@ -7,18 +7,12 @@ $search_output = "";
 
 $db = new DbBookings();
 
-if(isset($_GET['searchquery']) && $_GET['searchquery'] != ''){
-  $sname= $_GET['searchquery'];
-  $result = $db->viewBookings($sname);
-  
-  if($result != false){
-    echo '<b><u>Table Description:</u></b> <br/>';
-    echo json_encode($result[0]['description']);
-  }else{
-    echo "did not work";
-  }
+$result = $db->viewBookings();
+if($result != false){
+  $result = json_encode($result);
+}else{
+  echo "did not work";
 }
-
 
 // if(isset($_POST['searchquery']) && $_POST['searchquery'] != ""){
 // 	// run code if condition meets here
@@ -46,7 +40,7 @@ if(isset($_GET['searchquery']) && $_GET['searchquery'] != ''){
 // 	}
 // }
 ?>
-<h2>Search the Exercise Tables</h2>
+<!--<h2>Search the Exercise Tables</h2>
 <form method="get">
   Search: <input name="searchquery" type="text" size="70" maxlength="88">
   <input name="getBookings" type="submit">
@@ -57,8 +51,45 @@ if(isset($_GET['searchquery']) && $_GET['searchquery'] != ''){
     <option value="floor">Floor</option>
     <option value="name">Name</option>
   </select>
-</form>
+</form>-->
+<table>
+  <tr>
+    <th>Rooms Available:</th>
+    <td><?php echo $result;?></td>
+  </tr>
+    
+    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+              <thead>    
+              Only dynamic functions on homepage - no images </p>
+              Needs to look similar to this?
+                <tr>
+                  <th class="mdl-data-table__cell--non-numeric">Room No.</th>
+                  <th>Description</th>
+                  <th>Capacity</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="mdl-data-table__cell--numeric">1.11</td>
+                  <td>Lorem ipsum dolor sit amet, consectetur.</td>
+                  <td>30 persons</td>
+                </tr>
+                <tr>
+                  <td class="mdl-data-table__cell--numeric">2.1</td>
+                  <td>Fusce nec ante eu ipsum interdum egestas</td>
+                  <td>30 persons</td>
+                </tr>
+                <tr>
+                  <td class="mdl-data-table__cell--numeric">1.2</td>
+                  <td>Pellentesque purus leo, euismod venenatis</td>
+                  <td>30 persons</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+    
+</table>
+
 <div>
 <?php echo $search_output; ?>
 </div>
-

@@ -1,4 +1,3 @@
-
 <?php
 include_once 'classes/dbconnect.php';
 session_start();
@@ -34,24 +33,18 @@ if(isset($_POST['btn-login']))
     <div class="mdl-cell mdl-cell--4-col"></div>
     <div class="mdl-cell mdl-cell--4-col mdl-shadow--2dp">
       <section class="login-register">
-        <h3>User Login</h3>
+        <h3>Change Password</h3>
         <hr/>
         <!-- login form -->
         <form id="loginform" action="" method="post">
           <label for="username">Username/Email:</label><br/>
           <input type="text" name="email" class="required" placeholder="name@example.com" /><br/>
+          <label for="lastname">Last Name:</label><br/>
+              <input type="text" name="lastname" required="" placeholder="Smith" />
           
-          <label for="password">Password:</label><br/>
-          <input type="password" name="password" class="required" placeholder="Pa55w.rd" /><br/><br/>
+          <button type="submit" name="btn-login" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Reset</button><br/><br/>
           
-          <button type="submit" name="btn-login" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Login</button><br/><br/>
           
-          <label for="remember">Remember login:</label>
-          <input type="checkbox" value="remember" /></p>
-          
-          <p><a href="forget.php" onclick="forget.php" id="forget">Forgot Password?</a></p>
-          
-          <a href="register.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light">Register</a>
         </form><!-- ./login form end -->
       </section><!-- section end-->
     </div><!-- column end -->

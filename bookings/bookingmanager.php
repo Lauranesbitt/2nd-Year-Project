@@ -1,7 +1,49 @@
 <?php include '../header.php'; ?>
+
 <title>Booking Manager</title>
 <section class="bookingmanager">
   
+<div class="mdl-grid">
+        <div class="container mdl-cell mdl-cell--4-col">
+            <h3>Your Bookings</h3>
+            <p>Nothing to display here yet</p>
+            <a href="https://itp-module-x14346081.c9users.io/room.php" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Book a Room</a>
+            <a href="https://itp-module-x14346081.c9users.io/room.php" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Add a New Room</a>
+        </div>
+        <!-- Bookings List -->
+        <div class="mdl-cell mdl-cell--8-col">
+            <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+              <thead>
+                <tr>
+                  <th class="mdl-data-table__cell--non-numeric">Room No.</th>
+                  <th>Description</th>
+                  <th>Capacity</th>
+                  <th>Owner</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="mdl-data-table__cell--numeric">1.11</td>
+                  <td>Lorem ipsum dolor sit amet, consectetur.</td>
+                  <td>30 persons</td>
+                  <td>Laura</td>
+                </tr>
+                <tr>
+                  <td class="mdl-data-table__cell--numeric">2.1</td>
+                  <td>Fusce nec ante eu ipsum interdum egestas</td>
+                  <td>30 persons</td>
+                  <td>Jane Doe</td>
+                </tr>
+                <tr>
+                  <td class="mdl-data-table__cell--numeric">1.2</td>
+                  <td>Pellentesque purus leo, euismod venenatis</td>
+                  <td>30 persons</td>
+                  <td>Robert</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+    </div>  
     <!-- Calendar -->
     <div class="mdl-grid">
         <div class="mdl-cell mdl-cell--12-col">
@@ -116,7 +158,8 @@
         <div class="container mdl-cell mdl-cell--4-col">
             <h3>Your Bookings</h3>
             <p>Nothing to display here yet</p>
-            <a href="addBooking.php" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Make Booking</a>
+            <a href="https://itp-module-x14346081.c9users.io/room.php" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Book a Room</a>
+            <a href="https://itp-module-x14346081.c9users.io/room.php" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Add a New Room</a>
         </div>
         <!-- Bookings List -->
         <div class="mdl-cell mdl-cell--8-col">

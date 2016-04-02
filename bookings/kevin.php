@@ -1,3 +1,4 @@
+<?php include '../header.php'; ?>
 <?php
     ini_set('mysql.connect_timeout',300);
     ini_set('default_socket_timeout',300);
@@ -25,7 +26,7 @@
             }
             displayimage();
             function saveimage($name,$image){
-                $con=mysql_connect("localhost","root","");
+                $con=mysql_connect("localhost","x14346081","");
                 mysql_select_db("c9",$con);
                 $qry="insert into images (name,image) values ('$name','$image')";
                 $result=mysql_query($qry,$con);
@@ -37,7 +38,7 @@
                 }
             }
             function displayimage(){
-                $con=mysql_connect("localhost","root","");
+                $con=mysql_connect("localhost","x14346081","");
                 mysql_select_db("c9",$con);
                 $qry="select * from images";
                 $result=mysql_query($qry,$con);
