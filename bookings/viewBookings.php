@@ -57,7 +57,8 @@ if($result != false){
     <th>Rooms Available:</th>
     <td><?php echo $result;?></td>
   </tr>
-    
+  </table>
+    <!--
     <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
               <thead>    
               Only dynamic functions on homepage - no images </p>
@@ -89,7 +90,7 @@ if($result != false){
         </div>
     
 </table>
-
+-->
 <div>
 <?php echo $search_output; ?>
 </div>

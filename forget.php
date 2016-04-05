@@ -1,54 +1,87 @@
 <?php
-include_once 'classes/dbconnect.php';
-session_start();
 
-if(isset($_SESSION['user'])!="")
+if(!mysql_connect("localhost","x14346081",""))
 {
- echo "<script>alert('You are already logged in');</script>";
- echo "<script>window.location = 'index.php';</script>";
+     die('oops connection problem ! --> '.mysql_error());
 }
-if(isset($_POST['btn-login']))
+if(!mysql_select_db("c9"))
 {
- $email = mysql_real_escape_string($_POST['email']);
- $password = mysql_real_escape_string($_POST['password']);
- $res=mysql_query("SELECT * FROM registered WHERE email='$email'");
- $row=mysql_fetch_array($res);
- if($row['password']==md5($password))
- {
-  $_SESSION['user'] = $row['username'];
-  header('booking.php');
-  echo "<script type='text/javascript'>alert('You're logged in!');</script>";
- }
- else
- {
-  ?>
-        <script>alert('Wrong details entered, please try again!');</script>
-        <?php
- }
- 
+     die('oops database selection problem ! --> '.mysql_error());
 }
-?>
+?> 
+       
+   
+
 <?php include 'header.php';?>
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--4-col"></div>
     <div class="mdl-cell mdl-cell--4-col mdl-shadow--2dp">
       <section class="login-register">
-        <h3>Change Password</h3>
+        <h3>Reset Password</h3>
         <hr/>
-        <!-- login form -->
-        <form id="loginform" action="" method="post">
-          <label for="username">Username/Email:</label><br/>
-          <input type="text" name="email" class="required" placeholder="name@example.com" /><br/>
-          <label for="lastname">Last Name:</label><br/>
-              <input type="text" name="lastname" required="" placeholder="Smith" />
-          
-          <button type="submit" name="btn-login" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Reset</button><br/><br/>
-          
-          
-        </form><!-- ./login form end -->
-      </section><!-- section end-->
+        <!-- forgot password form -->
+        <form action="forget.php" method="post">
+Enter you email ID: <input type="text" name="email"><br>
+<input type="submit" name="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Send New Password"><br>
+<br>
+
+ <p><a href="resetpassword.php" onclick="resetpassword.php" id="forget">Change Current Password</a></p>
+</form>
+
+
+ <?php
+        $email = $_POST['email'];
+        
+        $submit = $_POST['submit'];
+        
+  
+        if ($submit){
+            
+            $email_check =mysql_query("SELECT * FROM registered WHERE email='$email'");
+            $count = mysql_num_rows($email_check);
+            
+            if ($count !=0){
+                //generate a new password
+                $random = rand(72891, 92729);
+                $new_password = $random;
+                
+                //create a copy of the new password 
+                
+                $email_password = $new_password;
+                
+                // encrypt the new password
+                $new_password = md5($new_password);
+                
+                //update the db
+                mysql_query("update user set password='".$new_password."'WHERE email='".$email."'");
+                
+             //send the password
+                $subject="Login Information";
+                $message ="Your password has been changeed to $email_password";
+                $from = "From:example@example.com";
+                
+                mail($email, $subject, $message,$from);
+                echo "your new password has been emailed to you";
+                
+                
+    
+            }
+            else{
+                echo "This email does not exist";
+            }
+        }
+        ?>
+
+
+
+
+
+
+
+
+         </section><!-- section end-->
     </div><!-- column end -->
     <div class="mdl-cell mdl-cell--4-col"></div>
   </div>
-  
+          
 <?php include 'footer.php'; ?>

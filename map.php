@@ -44,3 +44,5 @@
     </div>
 	<div class="mdl-cell mdl-cell--2-col"></div>
 </div>
+
+<?php include 'footer.php'; ?>

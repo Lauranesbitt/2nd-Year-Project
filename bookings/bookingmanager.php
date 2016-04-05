@@ -1,13 +1,16 @@
-<?php include '../header.php'; ?>
-
-<title>Booking Manager</title>
+<?php include '../header.php';
+if(isset($_SESSION['user'])=="")
+{
+ echo "<script>alert('Please log-in before viewing this page.');</script>";
+ echo "<script>window.location = 'https://itp-module-x14346081.c9users.io/login.php';</script>";
+}?>
 <section class="bookingmanager">
   
 <div class="mdl-grid">
         <div class="container mdl-cell mdl-cell--4-col">
             <h3>Your Bookings</h3>
             <p>Nothing to display here yet</p>
-            <a href="https://itp-module-x14346081.c9users.io/room.php" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Book a Room</a>
+            <a href="https://itp-module-x14346081.c9users.io/booking.php" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Book a Room</a>
             <a href="https://itp-module-x14346081.c9users.io/room.php" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Add a New Room</a>
         </div>
         <!-- Bookings List -->

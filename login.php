@@ -51,8 +51,23 @@ if(isset($_POST['btn-login']))
           
           <p><a href="forget.php" onclick="forget.php" id="forget">Forgot Password?</a></p>
           
-          <a href="register.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light">Register</a>
         </form><!-- ./login form end -->
+      </section><!-- section end-->
+    </div><!-- column end -->
+    
+    
+    <div class="mdl-cell mdl-cell--4-col">
+        <!--<section class="login-register">
+          <a href="register.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light">Register</a>
+        </section><!-- section end--> 
+    </div>
+  </div>
+  
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--4-col"></div>
+    <div class="mdl-cell mdl-cell--4-col mdl-shadow--2dp">
+      <section class="login-register">
+          <a href="register.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light">Register</a>
       </section><!-- section end-->
     </div><!-- column end -->
     <div class="mdl-cell mdl-cell--4-col"></div>

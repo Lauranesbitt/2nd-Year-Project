@@ -38,7 +38,7 @@
 				<div class="inner">
 
 					<a href="booking.php">
-						<img src="images/book.png" alt="Manage Bookings" style="width:100%;height:100%;">
+						<!-- <img src="images/book.png" alt="Manage Bookings" style="width:100%;height:100%;"> -->
 					</a>
 
 					<div class="clearfix"></div>
