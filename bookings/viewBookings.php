@@ -52,45 +52,59 @@ if($result != false){
     <option value="name">Name</option>
   </select>
 </form>-->
-<table>
-  <tr>
+
+
+<!--<table>
+  <tr></tr>
     <th>Rooms Available:</th>
-    <td><?php echo $result;?></td>
+    <td><?php //echo $result;?></td>
   </tr>
-  </table>
-    <!--
-    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
-              <thead>    
-              Only dynamic functions on homepage - no images </p>
-              Needs to look similar to this?
-                <tr>
-                  <th class="mdl-data-table__cell--non-numeric">Room No.</th>
-                  <th>Description</th>
-                  <th>Capacity</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="mdl-data-table__cell--numeric">1.11</td>
-                  <td>Lorem ipsum dolor sit amet, consectetur.</td>
-                  <td>30 persons</td>
-                </tr>
-                <tr>
-                  <td class="mdl-data-table__cell--numeric">2.1</td>
-                  <td>Fusce nec ante eu ipsum interdum egestas</td>
-                  <td>30 persons</td>
-                </tr>
-                <tr>
-                  <td class="mdl-data-table__cell--numeric">1.2</td>
-                  <td>Pellentesque purus leo, euismod venenatis</td>
-                  <td>30 persons</td>
-                </tr>
-              </tbody>
-            </table>
-        </div>
+</table>-->
+  
+  
+  Rooms Available:
+  <?php
+  "<table>"
+    $res = json_decode($result, true);
+    foreach($res as $item) { //foreach element in $arr
+        echo $item['DESCRIPTION']; //etc
+  "</table>"
+    }
     
-</table>
--->
+    
+   /*  if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        echo "id: " . $row["DESCRIPTION"]. "<br>";
+    }
+    } else {
+    echo "0 results";
+    }
+
+    mysqli_close($con);*/
+    ?>
+  
+  <?php
+  /* while($result = mysqli_fetch_array($result)) {
+                echo "\t<tr><td>".$row['DESCRIPTION']."</td></tr>\n";
+            }
+            mysqli_close($db);*/
+  ?>
+  
+  
+ <?php
+   /* $result = getObjectArray();
+
+     if (is_array($result)) {
+     foreach($result as $res) {
+     echo "Name:" . $res->DESCRPTION;
+      }
+      } else {
+       echo 'no results';
+      }*/
+    ?>
+    
+   
 <div>
 <?php echo $search_output; ?>
 </div>

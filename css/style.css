@@ -85,3 +85,43 @@ section{
     color: #4ECDC4;
     transition: color 0.5s ease;
 }
+
+/* Timetable Styling */
+
+.timetable tr td.available, .timetable tr td.unavailable{
+    border-right: 1px solid #000;
+}
+.timetable tr td.unavailable{
+    background-color:red;
+}
+.timetable tr td.available{
+    background-color:green;
+}
+.timetable a{
+    padding:0;
+}
+.timetable a:hover{
+    background-color: rgba(255,255,255,0.5);
+}
+.timetable a.selected{
+    background-color: #fff rgba(255,255,255,0.5);
+    display:block;
+    width:100%;
+    height:100%;
+    padding:0;
+    /* Hides text offscren */
+    text-indent: -9999;
+    
+}
+.icon-available{
+    border-left:2em solid green;
+    padding-left: 1em;
+}
+.icon-unavailable{
+    border-left:2em solid red;
+    padding-left: 1em;
+}
+.align-centered{
+    text-align: center;
+    margin: 0 auto;
+}

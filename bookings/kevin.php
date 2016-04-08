@@ -3,14 +3,11 @@
     ini_set('mysql.connect_timeout',300);
     ini_set('default_socket_timeout',300);
 ?>
-<html>
-    <body>
         <form method="post" enctype="multipart/form-data">
-            <br/>
-            <input type="file" name="image">
-            <br/><br/>
-            <input type="submit" name="submit" value="Upload" />
+            1.<input type="file" name="image" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light"></p>
+            2.<input type="submit" name="submit" value="Upload" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light"/>
         </form>
+        
         <?php
             if(isset($_POST['submit'])){
                 if(getimagesize($_FILES['image']['tmp_name'])== FALSE){
@@ -24,7 +21,7 @@
                     saveimage($name,$image);
                 }
             }
-            displayimage();
+            //displayimage();
             function saveimage($name,$image){
                 $con=mysql_connect("localhost","x14346081","");
                 mysql_select_db("c9",$con);
@@ -48,9 +45,7 @@
                 mysql_close($con);
                 }
         ?>
-    </body>
-</html>
-//KEVIN-DON'T DELETE//
+    
 </*if (image < 1mb){
     cancel upload
 }

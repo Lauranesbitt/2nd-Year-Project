@@ -10,6 +10,7 @@ if(isset($_SESSION['user'])!="")
 }
 if(isset($_POST['btn-login']))
 {
+    
  $email = mysql_real_escape_string($_POST['email']);
  $password = mysql_real_escape_string($_POST['password']);
  $res=mysql_query("SELECT * FROM registered WHERE email='$email'");
@@ -18,12 +19,12 @@ if(isset($_POST['btn-login']))
  {
   $_SESSION['user'] = $row['username'];
   header('booking.php');
-  echo "<script type='text/javascript'>alert('You're logged in!');</script>";
+  echo "<script type='text/javascript'>alert('You have now logged-in.');</script>";
  }
  else
  {
   ?>
-        <script>alert('Wrong details entered, please try again!');</script>
+        <script>alert('Wrong details entered, please try again.');</script>
         <?php
  }
  

@@ -6,9 +6,11 @@
 
 
 
+<?php
+  
 
-
-   
+   //include a javascript file
+   echo "<script type='text/javascript'>
      <script>
 function validatePassword() {
 var cpassword,npassword,confirmpassword,output = true;
@@ -42,7 +44,7 @@ output = false;
 return output;
 }
    </script>";
-
+?>
 
 
 

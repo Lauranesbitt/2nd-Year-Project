@@ -1,4 +1,4 @@
-
+<!--Register Form-->
 <?php include_once 'classes/dbconnect.php'; include_once 'classes/register.php'; ?>
 <!-- This includes the header section to the top of the webpage -->
 <?php include 'header.php' ?>
