@@ -13,17 +13,27 @@ if(isset($_SESSION['user'])=="")
       
     }
 ?>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="../js/action.js"></script>
 
-<h1 id="hello">Book Room</h1>
-<div id="book999"></div>
+<div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--5-col"></div>
+        <div class="mdl-cell mdl-cell--2-col">
+          <?php 
+            if($_SESSION['user']!="" && $_SESSION['admin']=="yes"){
+              ?>
+              Admin View</p>
+              <a href="https://itp-module-x14346081.c9users.io/room.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Add a New Room</a>
+          <?php } ?>  
+        </div>
+        <div class="mdl-cell mdl-cell--5-col"></div>
+      </div>
 
+<!--
   <div class="mdl-grid">
-        <!-- Bookings List -->
         <div class="mdl-cell mdl-cell--12-col">
           <section class="bookingmanager">
-          <h3 class="align-centered">Timetable for<!-- output date here --></h3>
             <table class="align-centered timetable mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
               <thead>
                 <tr>
@@ -46,7 +56,7 @@ if(isset($_SESSION['user'])=="")
               <tbody>
                 <tr>
                   <td class="available">
-                    <a href="" class="selected">test
+                    <a href=""><div class="selected">test</div>
                     </a></td>
                   <td class="available"></td>
                   <td class="available"></td>
@@ -79,19 +89,24 @@ if(isset($_SESSION['user'])=="")
         </section>
     </div>
 </div>  
-
-<!-- Book Room Form -->
-
+-->
+<!-- Book Room Form
+<a id="book" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Book a Room</a>
+<a id="bye" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Add a new room</a>
+-->
+<div id="book999"></div>
   
     <!-- Calendar -->
     <div class="mdl-grid">
         <div class="mdl-cell mdl-cell--1-col">
         </div>
         <div class="mdl-cell mdl-cell--10-col mdl-shadow--2dp">
+          
           <section class="calendar">
+            <p> Please select a date and time:</p>
             <div ng-app="testMod" ng-controller="testCtrl">
             
-            <p>Time Accessed: {{date | date:'yyyy/MM/dd HH:mm a'}}</p>
+           <!-- <p>Time Selected: {{date | date:'yyyy/MM/dd HH:mm a'}}</p> -->
             <div class="modal-dialog">
               <div class="modal-content">
                 <time-date-picker ng-model="date"></time-date-picker>
@@ -184,37 +199,37 @@ if(isset($_SESSION['user'])=="")
                     </div>
                   </div>
                 </div>
-                <div class="buttons">
-                  <button ng-click="setNow()" type="button" class="btn btn-link, mdl-button mdl-js-button mdl-button--raised mdl-button--light">Now</button>
-                  <button ng-click="save()" name="btn-save" type="button" class="btn btn-link, mdl-button mdl-js-button mdl-button--raised mdl-button--light">OK</button>
+                 <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--3-col"></div>
+                    <div class="mdl-cell mdl-cell--6-col">
+                      <div class="buttons">
+                        <button ng-click="setNow()" type="button" class="btn btn-link, mdl-button mdl-js-button mdl-button--raised mdl-button--light">Now</button>
+                        <button ng-click="save()" name="btn-save" type="button" class="btn btn-link, mdl-button mdl-js-button mdl-button--raised mdl-button--light">Save</button>
+                      </div>
+
+                    <div class="mdl-cell mdl-cell--3-col"></div>
+                  </div>
                 </div>
+                
+                <section class="login-register">
+                  <h3>Book a Room</h3>
+                  <hr/>
+                  
+                  
+              <!--Book a Room-->  
+              <?php include 'booking.php'; ?>
+                
               </div>
               </script>
             </section>
           </div>
           <div class="mdl-cell mdl-cell--1-col">
+            
           </div>
         </div>
-      
-      
-<!--"Book a Room", "Add a Room" Buttons -->
-<div class="mdl-grid">
-  <div class="mdl-cell mdl-cell--4-col"> 
-  </div>
-  
-  <div class="mdl-cell mdl-cell--4-col">
-    </section>  
-      <a href="https://itp-module-x14346081.c9users.io/booking.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Book a Room</a>
-      <a href="https://itp-module-x14346081.c9users.io/room.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Add a New Room</a>
-    </section>        
-  </div>
-  
-  <div class="mdl-cell mdl-cell--4-col"> 
-  </div>
-</div>
 
 <!-- Filter -->
-<div class="mdl-grid">
+<!--<div class="mdl-grid">
   <div class="mdl-cell mdl-cell--1-col"></div>
   <div class="mdl-cell mdl-cell--10-col mdl-shadow--2dp">  
     <section class="filter">
@@ -228,9 +243,16 @@ if(isset($_SESSION['user'])=="")
           <td>Capacity</td>
           <td>Time Available</td>
         </tr>
-        <?php
+        <?//php
         foreach (filter_list() as $id =>$filter) {
-            echo '<tr><td>' . $filter . '</td><td>' . filter_id($filter) . '</td></tr>';
+            echo 
+            
+            '<tr>
+            
+            <td>' . $filter . '</td>
+            <td>' . filter_id($filter) . '</td>
+            
+            </tr>';
         }
         ?>
       </table>
@@ -238,13 +260,13 @@ if(isset($_SESSION['user'])=="")
   </div>
   <div class="mdl-cell mdl-cell--1-col"> 
   </div>
-</div>
+</div> -->
 
 <!--Filter-->
-
       
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 <script type="text/javascript" src="../js/calendar.js"></script>
 <?php include '../footer.php' ?>
 
 <!--Cancel Button <button ng-click="cancel()" type="button" class="btn btn-link">Cancel</button> -->
+

@@ -14,7 +14,7 @@ class DbBookings{
     
     
     public function viewBookings(){
-        $query = "SELECT DESCRIPTION FROM rooms";
+        $query = "SELECT DESCRIPTION, TYPE, ROOM FROM rooms";
         $con = $this->Connect();
         
         $result = mysqli_query($con, $query);

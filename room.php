@@ -1,4 +1,3 @@
-<!-- This includes the header section to the top of the webpage -->
 <?php include 'header.php'; include_once 'bookings/addRoom.php';
 
 
@@ -10,7 +9,7 @@ if(isset($_SESSION['user'])=="")
 }
 include_once 'classes/dbconnect.php';
 
-if(isset($_POST['btn-addbooking']))
+if(isset($_POST['btn-addbooking'])) //add room or add booking
 {
  $NAME = mysql_real_escape_string($_POST['NAME']);
 
@@ -31,8 +30,8 @@ if(isset($_POST['btn-addbooking']))
     <div class="mdl-cell mdl-cell--4-col"></div>
     <div class="mdl-cell mdl-cell--4-col mdl-shadow--2dp">
       <section class="login-register">
-        <h3>Add a Room to our Database</h3>
-        <h6>(Admin only)-remove after</h6></br>
+        <h3>Add a New Room</h3>
+        <h6></h6></br>
         <hr/>
         <!-- add booking form -->
         <form method="post"> 
@@ -52,7 +51,7 @@ if(isset($_POST['btn-addbooking']))
             </p>
           
           <label for="capacity">Seating Capacity:</label></br>
-          <input name="capacity" type="number" default value="1" maxlength="3" required=""></p>
+          <input name="capacity" type="number" default value="1" min="1" max="100" maxlength="3" required=""></p>
           
           <label for="type">Room Type:</label></br>
           <input name="type" type="text" placeholder="eg. Computer Lab" required=""></p>
@@ -113,5 +112,5 @@ if(isset($_POST['btn-addbooking']))
     </div><!-- column end -->
     <div class="mdl-cell mdl-cell--4-col"></div>
   </div>
-
-<?php include 'footer.php'; ?>
+  
+  <?php include 'footer.php'?>

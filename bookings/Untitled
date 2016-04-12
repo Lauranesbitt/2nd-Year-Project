@@ -1,0 +1,27 @@
+<!-- Display 'Add a room' button if logged-in as admin -->
+<!-- OPTION 1 -->
+<?php
+  function displayroombtn(){
+    $con=mysql_connect("localhost","x14346081","");
+    mysql_select_db("c9",$con);
+    $qry="select admin from admin";
+    $result=mysql_query($qry,$con);
+    while($result == "yes"){ //if or while
+      ?>
+         <a href="https://itp-module-x14346081.c9users.io/room.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Add a New Room</a>;
+    <?php 
+    }
+    mysql_close($con);
+  }
+?>
+
+<!-- OPTION 2 -->
+<?php
+$sql = "SELECT admin FROM admin";
+$result = mysql_query($qry,$con);
+
+if ($result=="yes") {
+  ?>
+   <a href="https://itp-module-x14346081.c9users.io/room.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Add a New Room</a>
+<?php } ?>
+

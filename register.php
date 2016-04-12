@@ -7,7 +7,7 @@
     <!-- Registration section -->
     <div class="mdl-cell mdl-cell--6-col mdl-shadow--2dp">
       <section class="login-register">
-        <h3>User Registration</h3>
+        <h3>Register as User</h3>
         <hr/>
         <!-- form start -->
         <form id="" method="post">
@@ -26,22 +26,22 @@
           <div class="mdl-grid">
             <div class="mdl-cell mdl-cell--6-col">
               <label for="email">Email:</label><br/>
-              <input type="email" name="email" required="" placeholder="name@gmail.com" /><br/>
+              <input type="email" name="email" required="" placeholder="John123@gmail.com" /><br/>
             </div>
             <div class="mdl-cell mdl-cell--6-col">
               <label for="username">Username:</label><br/>
-              <input type="text" name="username" required="" placeholder="name@gmail.com" /><br/>
+              <input type="text" name="username" required="" placeholder="John123@gmail.com" /><br/>
             </div>
           </div>
           <!-- row 3 -->
           <div class="mdl-grid">
             <div class="mdl-cell mdl-cell--6-col">
               <label for="password">Password:</label><br/>
-              <input type="password" name="password" required="" placeholder="p@55w0rd" /><br/>
+              <input type="password" name="password" required="" placeholder="P@55w0rd" /><br/>
             </div>
             <div class="mdl-cell mdl-cell--6-col">
               <label for="confirmpassword">Confirm Password:</label><br/>
-              <input type="password" name="confirmpassword" required="" placeholder="p@55w0rd" /><br/>
+              <input type="password" name="confirmpassword" required="" placeholder="P@55w0rd" /><br/>
             </div>
           </div>
           <!-- row 4 -->
@@ -49,9 +49,17 @@
         </form><!-- ./Registration form end -->
       </section><!-- ./section end -->
     </div><!-- ./ column end -->
-    <div class="mdl-cell mdl-cell--3-col"></div>
+    
+    <div class="mdl-cell mdl-cell--3-col">
+      <section class="login-register">
+          <a href="login.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light">User Login</a></p>
+          <a href="loginadmin.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light">Admin Login</a></p>
+          <a href="registeradmin.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light">Register as Admin</a>
+        </section><!-- section end--> 
+    </div>
   </div>
   
+  <!--Can be deleted
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--3-col"></div>
     <div class="mdl-cell mdl-cell--6-col mdl-shadow--2dp">
@@ -65,8 +73,8 @@
             </div>
           </div>
         </form><!-- ./Registration form end -->
-      </section><!-- ./section end -->
-    </div><!-- ./ column end -->
-    <div class="mdl-cell mdl-cell--3-col"></div>
-  </div>
+   <!--   </section><!-- ./section end -->
+    <!-- </div><!-- ./ column end -->
+    <!--<div class="mdl-cell mdl-cell--3-col"></div>
+  </div>-->
 <?php include 'footer.php'; ?>

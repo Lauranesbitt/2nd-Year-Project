@@ -1,81 +1,55 @@
-
 <?php
-  
-   //include a javascript file
-   echo "<script type='text/javascript' src='passscript.js'></script>";
+//This code runs if the form has been submitted
+if (isset($_POST['submit']))
+{
+
+
+
+
+// checks if the username is in use
+$check = mysql_query("SELECT * FROM registered WHERE email = '$email'")or die(mysql_error());
+$check2 = mysql_num_rows($check);
+
+//if the name exists it gives an error
+if ($check2 == 0) {
+$error[] = 'Sorry, we cannot find your account details please try another email address.';
+}
+
+// if no errors then carry on
+if (!$error) {
+
+$query = mysql_query("SELECT * FROM registered WHERE email = '$email' ")or die (mysql_error());
+$r = mysql_fetch_object($query);
+
+//create a new random password
+
+$password = substr(md5(uniqid(rand(),1)),3,10);
+$pass = md5($password); //encrypted version for database entry
+
+//send email
+$to = "$email";
+$subject = "Account Details Recovery";
+$body = "Hi $r->username, nn you or someone else have requested your account details. nn Here is your account information please keep this as you may need this at a later stage. nnYour username is $r->username nn your password is $password nn Your password has been reset please login and change your password to something more rememberable.nn Regards Site Admin";
+$additionalheaders = "From: <user@domain.com>rn";
+$additionalheaders .= "Reply-To: noprely@domain.com";
+mail($to, $subject, $body, $additionalheaders);
+
+//update database
+$sql = mysql_query("UPDATE registered SET password='$pass' WHERE email = '$email'")or die (mysql_error());
+$rsent = true;
+
+
+if ($rsent == true){
+    echo "<p>You have been sent an email with your account details to $email</p>n";
+    } else {
+    echo "<p>Please enter your e-mail address. You will receive a new password via e-mail.</p>n";
+    }
+
+
+}
+}
+
+
+
 ?>
-<?php
 
-if(!mysql_connect("localhost","x14346081",""))
-{
-     die('oops connection problem ! --> '.mysql_error());
-}
-if(!mysql_select_db("c9"))
-{
-     die('oops database selection problem ! --> '.mysql_error());
-}
-if(isset($_POST['changePass']))
-{
- $email = mysql_real_escape_string($_POST['email']);
- $password = mysql_real_escape_string($_POST['password']);
- $res=mysql_query("SELECT * FROM registered WHERE email='$email'");
- $row=mysql_fetch_array($res);
-if($_POST["cpassword"] == $row["password"]) {
-mysql_query("UPDATE users set password='" . $_POST["npassword"] . "' WHERE userId='" . $_SESSION["userId"] . "'");
-$message = "Password Changed";
-} else $message = "Current Password is not correct";
-}
-?> 
-    
- 
-    
-<?php include 'header.php' ?>
-  <div class="mdl-grid">
-    <div class="mdl-cell mdl-cell--3-col"></div>
-    <!-- form -->
-    <div class="mdl-cell mdl-cell--6-col mdl-shadow--2dp">
-      <section class="changepass">
-        <h3>Change Password</h3>
-        <hr/>
-        <!-- form start -->
-    <form name="frmChange" method="post" action=""onSubmit="return validatePassword()">
-          <div class="mdl-cell mdl-cell--6-col">
-              <label for="email">Email:</label><br/>
-              <input type="email" name="email" required="" placeholder="name@gmail.com" /><br/>
-            </div>
-          
-          
-          <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--6-col">
-              <label for="cpassword">Current Password:</label>
-              <input type="password" name="cpassword" required="" placeholder="p@55w0rd" />
-            </div>
-          
-          <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--6-col">
-              <label for="npassword">New Password:</label>
-              <input type="password" name="npassword" required="" placeholder="p@55w0rd" />
-            </div>
-            
-            <div class="mdl-cell mdl-cell--6-col">
-              <label for="confirmpassword">Confirm New Password:</label>
-              <input type="password" name="confirmpassword" required="" placeholder="p@55w0rd" />
-            </div>
-          </div>
-          <!-- row 4 -->
-          <br/><br/><button name="changePass type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Reset</button><br/><br/>
-          
-         
-        </form><!-- ./change password end -->
-        
-        
-        
-        
-        
-         
- </section><!-- ./section end -->
-    </div><!-- ./ column end -->
-    <div class="mdl-cell mdl-cell--3-col"></div>
-  </div>
-  </div>
-<?php include 'footer.php'; ?>

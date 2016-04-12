@@ -8,18 +8,17 @@ if(isset($_SESSION['user'])!="")
  echo "<script>alert('You are already logged in');</script>";
  echo "<script>window.location = 'index.php';</script>";
 }
-
 if(isset($_POST['btn-login']))
 {
     
  $email = mysql_real_escape_string($_POST['email']);
  $password = mysql_real_escape_string($_POST['password']);
- $res=mysql_query("SELECT * FROM registered WHERE email='$email'");
+ $res=mysql_query("SELECT * FROM admin WHERE email='$email'");
  $row=mysql_fetch_array($res);
  if($row['password']==md5($password))
  {
   $_SESSION['user'] = $row['username'];
-  $_SESSION['admin'] = "no";
+  $_SESSION['admin'] = "yes";
   header('booking.php');
   echo "<script type='text/javascript'>alert('You have now logged-in.');</script>";
  }
@@ -37,27 +36,23 @@ if(isset($_POST['btn-login']))
     <div class="mdl-cell mdl-cell--4-col"></div>
     <div class="mdl-cell mdl-cell--4-col mdl-shadow--2dp">
       <section class="login-register">
-        <!-- Login Section -->
-        <h3>User Login</h3>
+        <h3>Admin Login</h3>
         <hr/>
-        
         <!-- login form start -->
         <form id="loginform" action="" method="post">
-          <!-- row 1 -->
+          
           <label for="username">Username/Email:</label><br/>
-          <input type="text" name="email" class="required" "mdl-textfield__input" placeholder="John123@gmail.com"/></p>
+          <input type="text" name="email" class="required" "mdl-textfield__input" placeholder="John123@gmail.com" /></p>
           
-          <!-- row 2 -->
           <label for="password">Password:</label><br/>
-          <input type="password" name="password" class="required" "mdl-textfield__input" placeholder="P@55w0rd" /></br></br>
+          <input type="password" name="password" class="required" placeholder="P@55w0rd" /></br></br>
           
-          <!-- row 3 -->
-          <button type="submit" name="btn-login" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Login</button></br></br>
+          <button type="submit" name="btn-login" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Login</button><br/><br/>
           
-          <label for="remember" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+        <label for="remember" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
               <input type="checkbox" value="remember" id="remember" class="mdl-checkbox__input">
               <span class="mdl-checkbox__label">Stay logged-in</span>
-          </label></p>
+        </label></p>
           
           <p><a href="forget.php" onclick="forget.php" id="forget">Forgot Password?</a></p>
           
@@ -67,8 +62,8 @@ if(isset($_POST['btn-login']))
     
     
     <div class="mdl-cell mdl-cell--4-col">
-        <section class="login-register">
-             <a href="loginadmin.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light">Admin Login</a></p>
+         <section class="login-register">
+             <a href="login.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light">User Login</a></p>
              <a href="register.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light">Register as User</a></p>
              <a href="registeradmin.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light">Register as Admin</a>
         </section><!-- section end--> 
@@ -81,7 +76,7 @@ if(isset($_POST['btn-login']))
     <div class="mdl-cell mdl-cell--4-col"></div>
     <div class="mdl-cell mdl-cell--4-col mdl-shadow--2dp">
       <section class="login-register">
-          <a href="loginadmin.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light">Admin Login</a>
+          <a href="login.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light">User Login</a>
           <a href="register.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light">Register</a>
       </section><!-- section end-->
     <!--</div><!-- column end -->

@@ -7,7 +7,7 @@ session_start();
 <html>
 
 <head>
-  <link rel="icon" href="https://itp-module-x14346081.c9users.io/images/logo2.png" type="image/png" sizes="16x16 32x32">
+  <link rel="icon" href="https://itp-module-x14346081.c9users.io/images/header/logo2.png" type="image/png" sizes="16x16 32x32">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
   <link rel="stylesheet" href="https://code.getmdl.io/1.1.2/material.indigo-blue.min.css" />
@@ -42,7 +42,7 @@ session_start();
       <!-- Title -->
       <a href="https://itp-module-x14346081.c9users.io/index.php">
         <span class="mdl-layout-title">
-          <img src="https://itp-module-x14346081.c9users.io/images/logo2.png" alt="logo" style="width:15%;height:15%;"/>
+          <img src="https://itp-module-x14346081.c9users.io/images/header/logo2.png" alt="logo" style="width:15%;height:15%;"/>
           Dragon Room Booking
         </span>
       </a>
@@ -63,7 +63,6 @@ session_start();
         if(isset($_SESSION['user'])==""){
           ?>
           <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/login.php">Login</a>
-          <!--<a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/register.php">Register</a>-->
       <?php } ?>  
       <!--<?php 
         if(isset($_SESSION['user'])!=""){

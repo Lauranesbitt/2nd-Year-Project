@@ -62,47 +62,44 @@ if($result != false){
 </table>-->
   
   
-  Rooms Available:
+  <h2>Rooms Available: </h2>
+  <table class="roomList">
+    <tr>
+      <th colspan='3'>Room</th>
+      <th colspan='3'>Type</th>
+      <th colspan='6'>Description</th>
+    </tr>
   <?php
-  "<table>"
+  
     $res = json_decode($result, true);
     foreach($res as $item) { //foreach element in $arr
-        echo $item['DESCRIPTION']; //etc
-  "</table>"
+        echo "
+            
+        <tr>
+          <td colspan='3'>".$item['ROOM']."</td>
+          <td colspan='3'>".$item['TYPE']."</td>
+          <td colspan='6'>".$item['DESCRIPTION']."</td>
+        </tr>
+           
+           
+        
+        ";//etc
+  
     }
     
-    
-   /*  if (mysqli_num_rows($result) > 0) {
-    // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-        echo "id: " . $row["DESCRIPTION"]. "<br>";
-    }
-    } else {
-    echo "0 results";
-    }
 
-    mysqli_close($con);*/
+    /*while($result = $row->fetch_array()) {
+				echo "
+				    <tr>
+	    		    	<td>".$result["DESCRIPTION"]."</td>
+	    		    	</tr>
+	    	    ";
+	    	}
+			$con->close();*/
     ?>
+    </table>
   
-  <?php
-  /* while($result = mysqli_fetch_array($result)) {
-                echo "\t<tr><td>".$row['DESCRIPTION']."</td></tr>\n";
-            }
-            mysqli_close($db);*/
-  ?>
-  
-  
- <?php
-   /* $result = getObjectArray();
-
-     if (is_array($result)) {
-     foreach($result as $res) {
-     echo "Name:" . $res->DESCRPTION;
-      }
-      } else {
-       echo 'no results';
-      }*/
-    ?>
+ 
     
    
 <div>

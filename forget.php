@@ -1,4 +1,4 @@
-<?php include_once 'classes/dbconnect.php'; include_once 'classes/resetpassword.php'; ?>
+<?php include_once 'classes/dbconnect.php'; include_once 'resetpassword.php'; ?>
 <!-- This includes the header section to the top of the webpage -->
 <?php include 'header.php' ?>
   <div class="mdl-grid">
@@ -21,7 +21,7 @@
             </div>
             <div class="mdl-cell mdl-cell--6-col">
               <label for="username">Username:</label><br/>
-              <input type="text" name="username" required="" placeholder="name@gmail.com" /><br/>
+              <input type="text" name="username" required="" placeholder="john12" /><br/>
             </div>
           </div>
           <!-- row 3 -->

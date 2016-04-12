@@ -5,7 +5,7 @@ if(isset($_SESSION['user'])=="")
  echo "<script>alert('Please log-in to view this page.');</script>";
  echo "<script>window.location = 'login.php';</script>";
 }
-include_once 'classes/dbconnect.php';
+include_once '../classes/dbconnect.php';
 
 if(isset($_POST['btn-addbooking']))
 {
