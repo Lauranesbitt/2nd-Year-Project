@@ -14,21 +14,19 @@
          
            
           <!-- row 2 -->
-          <div class="mdl-grid">
+          <
+            <div class="mdl-grid">
             <div class="mdl-cell mdl-cell--6-col">
-              <label for="email">Email:</label><br/>
-              <input type="email" name="email" required="" placeholder="name@gmail.com" /><br/>
+              <label for="password">Enter Your new Password:</label><br/>
+              <input type="password" name="password" required="" placeholder="P@55w0rd" /><br/>
             </div>
             <div class="mdl-cell mdl-cell--6-col">
-              <label for="username">Username:</label><br/>
-              <input type="text" name="username" required="" placeholder="john12" /><br/>
+              <label for="confirmpassword">Confirm Password:</label><br/>
+              <input type="password" name="confirmpassword" required="" placeholder="P@55w0rd" /><br/>
             </div>
           </div>
-          <!-- row 3 -->
-          
-          
           <!-- row 4 -->
-          <br/><br/><button name="submit" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Reset</button><br/><br/>
+          <br/><br/><button name="submit1" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Reset</button><br/><br/>
         </form><!-- ./Reset form end -->
       </section><!-- ./section end -->
     </div><!-- ./ column end -->

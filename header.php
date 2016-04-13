@@ -25,11 +25,15 @@ session_start();
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <!-- Left aligned menu below button -->
+
+<!-- Hamburger Menu 
 <button id="demo-menu-lower-left"
         class="mdl-button mdl-js-button mdl-button--icon">
   <i class="material-icons">more_vert</i>
 </button>
+End Hamburger Menu-->
 
+<!-- 
 <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
     for="demo-menu-lower-left">
   <li class="mdl-menu__item">Some Action</li>
@@ -37,6 +41,7 @@ session_start();
   <li disabled class="mdl-menu__item">Disabled Action</li>
   <li class="mdl-menu__item">Yet Another Action</li>
 </ul>
+-->
 
     <div class="mdl-layout__header-row">
       <!-- Title -->
@@ -50,26 +55,37 @@ session_start();
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation. We hide it in small screens. -->
       <nav class="mdl-navigation mdl-layout--large-screen-only">
-        <!--<a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/index.php">Available Rooms</a>-->
+        <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/index.php">Available Rooms</a>
         <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/map.php">Floor Plan</a>
-        <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/bookings/bookingmanager.php">My Bookings</a>
+ 
+        <!-- Show 'Booking Manager' if user is loggged in-->
+       <?php 
+          if($_SESSION['admin']=="no"){
+            ?>
+             <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/bookings/bookingmanager.php">Booking Manager</a>
+        <?php } ?>
+        
+        <!-- Show 'Admin Manager' if admin is loggged in-->
+       <?php 
+          if($_SESSION['admin']=="yes"){
+            ?>
+            <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/admin/adminmanager.php">Room Manager</a>
+        <?php } ?>
+        
+        <!-- Show 'Logout' if user/admin is loggged in-->
         <?php 
         if(isset($_SESSION['user'])!=""){
           ?>
-         <a class="mdl-navigation__link" <p><strong><font color="white">Logged in as: <?php echo $_SESSION['user']; ?></font></strong></p></a>
+         <a class="mdl-navigation__link" <p><strong><font color="white">Logged in as: <?php echo $_SESSION['user']; ?></font></strong></a></p>
          <a href="https://itp-module-x14346081.c9users.io/logout.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Logout</a>
       <?php } ?>
+
+      <!-- Show 'Login' if user/admin is not loggged in-->
       <?php 
         if(isset($_SESSION['user'])==""){
           ?>
           <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/login.php">Login</a>
-      <?php } ?>  
-      <!--<?php 
-        if(isset($_SESSION['user'])!=""){
-          ?>
-        <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/room.php">Book a Room*</a> This should be part of My Bookings
-        <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/booking.php">Add a Room*</a> to be removed once my bookings is complete
-      <?php } ?>-->  
+      <?php } ?>
       
      </nav>
     </div>

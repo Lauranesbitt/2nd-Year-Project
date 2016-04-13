@@ -1,18 +1,17 @@
-
 <?php
-include 'api/DbBookings.php';
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
-$search_output = "";
-
-$db = new DbBookings();
-
-$result = $db->viewBookings();
-if($result != false){
-  $result = json_encode($result);
-}else{
-  echo "did not work";
-}
+  include 'api/DbBookings.php';
+  error_reporting(E_ALL);
+  ini_set('display_errors', '1');
+  $search_output = "";
+  
+  $db = new DbBookings();
+  
+  $result = $db->viewBookings();
+  if($result != false){
+    $result = json_encode($result);
+  }else{
+    echo "did not work";
+  }
 
 // if(isset($_POST['searchquery']) && $_POST['searchquery'] != ""){
 // 	// run code if condition meets here
@@ -61,47 +60,59 @@ if($result != false){
   </tr>
 </table>-->
   
+ <!-- Heading --> 
+<h2>Available Rooms</h2>
+To make a booking, select a room or click the button below:</p>
+<a href="bookings/bookingmanager.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"><span aria-hidden="true" class="arrow_carrot-up_alt2" ></span> Book a Room</a></p>
+<!-- End Heading --> 
   
-  <h2>Rooms Available: </h2>
-  <table class="roomList">
-    <tr>
-      <th colspan='3'>Room</th>
-      <th colspan='3'>Type</th>
-      <th colspan='6'>Description</th>
-    </tr>
-  <?php
+<!-- My Bookings -->
+<div class="mdl-grid panel2">
+  <div class="mdl-cell mdl-cell--2-col"></div>
   
-    $res = json_decode($result, true);
-    foreach($res as $item) { //foreach element in $arr
-        echo "
-            
+  <div class="mdl-cell mdl-cell--8-col mdl-shadow--2dp">
+    <section class="login-register">
+      
+      <!-- Available Rooms Table -->
+      <table class="roomList">
         <tr>
-          <td colspan='3'>".$item['ROOM']."</td>
-          <td colspan='3'>".$item['TYPE']."</td>
-          <td colspan='6'>".$item['DESCRIPTION']."</td>
+          <th colspan='3'>Room</th>
+          <th colspan='3'>Type</th>
+          <th colspan='6'>Description</th>
         </tr>
-           
-           
+      <?php
+      
+        $res = json_decode($result, true);
+        foreach($res as $item) { //foreach element in $arr
+            echo "
+                
+            <tr>
+              <td colspan='3'>".$item['ROOM']."</td>
+              <td colspan='3'>".$item['TYPE']."</td>
+              <td colspan='6'>".$item['DESCRIPTION']."</td>
+            </tr>
+            ";//etc
+        }
         
-        ";//etc
-  
-    }
-    
+        /*while($result = $row->fetch_array()) {
+    				echo "
+    				    <tr>
+    	    		    	<td>".$result["DESCRIPTION"]."</td>
+    	    		    	</tr>
+    	    	    ";
+    	    	}
+    			$con->close();*/
+        ?>
+     </table>
+     <!-- End Available Rooms Table -->
+          
+        </section>
+      </div>
+      
+  <div class="mdl-cell mdl-cell--2-col"></div>
+</div>
+<!-- End My Bookings -->
 
-    /*while($result = $row->fetch_array()) {
-				echo "
-				    <tr>
-	    		    	<td>".$result["DESCRIPTION"]."</td>
-	    		    	</tr>
-	    	    ";
-	    	}
-			$con->close();*/
-    ?>
-    </table>
-  
- 
-    
-   
 <div>
-<?php echo $search_output; ?>
+  <?php echo $search_output; ?>
 </div>

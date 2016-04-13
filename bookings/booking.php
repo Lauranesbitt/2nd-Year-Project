@@ -1,8 +1,10 @@
-<?php include_once 'addBooking.php'; ?>
+
 
 
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--6-col">
+    
+    <p> Please choose a room and seats required:</p>
             
     <form method="post"> 
        <div class="mdl-grid">

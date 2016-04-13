@@ -6,21 +6,21 @@ session_start();
 if(isset($_SESSION['user'])!="")
 {
  echo "<script>alert('You are already logged in');</script>";
- echo "<script>window.location = 'index.php';</script>";
+ header( 'Location: bookings/bookingmanager.php');
 }
 
 if(isset($_POST['btn-login']))
 {
-    
  $email = mysql_real_escape_string($_POST['email']);
  $password = mysql_real_escape_string($_POST['password']);
  $res=mysql_query("SELECT * FROM registered WHERE email='$email'");
  $row=mysql_fetch_array($res);
+ 
  if($row['password']==md5($password))
  {
   $_SESSION['user'] = $row['username'];
   $_SESSION['admin'] = "no";
-  header('booking.php');
+  header( 'Location: bookings/bookingmanager.php');
   echo "<script type='text/javascript'>alert('You have now logged-in.');</script>";
  }
  else
@@ -29,8 +29,8 @@ if(isset($_POST['btn-login']))
         <script>alert('Wrong details entered, please try again.');</script>
         <?php
  }
- 
 }
+
 ?>
 <?php include 'header.php';?>
   <div class="mdl-grid">
