@@ -1,5 +1,5 @@
 
-
+<?php include_once 'changeLink.php';
 <?php
 // Connect to MySQL
     $username = "x14346081"; 
@@ -23,8 +23,10 @@ if (isset($_POST["submit"])) {
 		$email = $_POST["email"];
 		
 	}else{
-		echo "email is not valid";
-		exit;
+		echo "Email is not valid <br>
+		";
+		
+		
 	}
 
 	// Check to see if a user exists with this e-mail
@@ -53,5 +55,7 @@ if (isset($_POST["submit"])) {
 	}
 	else
 		echo "No user with that e-mail address exists.";
+		
 }
 ?>
+

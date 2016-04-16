@@ -1,35 +1,11 @@
-<?php include '../header.php';
+<?<?php include '../header.php';
 if(isset($_SESSION['user'])=="")
 {
  echo "<script>alert('Please log-in before viewing this page.');</script>";
  echo "<script>window.location = 'https://itp-module-x14346081.c9users.io/login.php';</script>";
 }?>
 
- <?//php 
-    if(isset($_POST['btn-save'])){
-      $resultx = datetime;
-    }
-    else{
-      echo 'EECCHHOO ECHO echo ec-ho e-o e o';
-      echo"<script>alert('Sorry, there was an error creating your booking.');</script>";
-    }
-    elseif(isset($_POST['btn-addbooking']))
-    {
-       $room = mysql_real_escape_string($_POST['room']);
-       $capacity = mysql_real_escape_string($_POST['capacity']);
-       $date = mysql_real_escape_string($_POST['date']);
-       $time = mysql_real_escape_string($_POST['time']);
-       $requirements = mysql_real_escape_string($_POST['requirements']);
-       
-     elseif(mysql_query("INSERT INTO bookings(room, capacity, date, time, requirements) VALUES ('$room','$capacity','$date','$time','$requirements')"))
-     {
-            echo"<script>alert('Your booking had been created. Go to My Bookings to review.');</script>";
-     }
-    }
-?>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="../js/action.js"></script>
 
 <div class="mdl-grid panel2">
 	<div class="mdl-cell mdl-cell--2-col"></div>
@@ -120,8 +96,6 @@ if(isset($_SESSION['user'])=="")
 <a id="bye" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Add a new room</a>
 -->
 
-
-<div id="book999"></div> <!-- DO WE NEED????? -->
 <!-- Book a Room -->  
 <div class="mdl-grid">
   <div class="mdl-cell mdl-cell--1-col"></div>
@@ -241,12 +215,14 @@ if(isset($_SESSION['user'])=="")
             </div>
           </div>
 
-        <!--Book a Room-->  
-        <?php include 'booking.php'; ?>
+        <!--Book a Room--> 
+        <?php include 'addBooking.php'; ?> 
           
       </div>
     </script>
-    </section>
+        <button type="submit" form="bookingForm" onclick="location.reload();location.href='booking.php'">Click me!</button>
+    <label for="btn-addbooking" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Complete</label>
+     </section>
   </section>
 </div>
       
@@ -264,7 +240,7 @@ if(isset($_SESSION['user'])=="")
       
       <p>Please select a booking for more info:</p>
       <!-- Content -->  
-      <?//php include 'fetchbookings.php'; ?>
+      <?php include 'fetchBookings.php' ?>
       <!-- Test Content -->
       You have made no bookings. Please create a booking at the top of this page.</p>
       OR</p>
@@ -287,6 +263,10 @@ if(isset($_SESSION['user'])=="")
   <div class="mdl-cell mdl-cell--1-col"></div>
 </div>
 <!-- End My Bookings -->
+
+
+ <?php include 'fetchRegistered.php'; ?>
+
 
 
 <!-- Filter -->

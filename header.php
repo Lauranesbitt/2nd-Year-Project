@@ -7,23 +7,45 @@ session_start();
 <html>
 
 <head>
+  
   <link rel="icon" href="https://itp-module-x14346081.c9users.io/images/header/logo2.png" type="image/png" sizes="16x16 32x32">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
   <link rel="stylesheet" href="https://code.getmdl.io/1.1.2/material.indigo-blue.min.css" />
+  <link type="text/css" rel="stylesheet" href="../css/footable.core.min.css" />
   <link type="text/css" rel="stylesheet" href="../css/calendar.css" />
   <link type="text/css" rel="stylesheet" href="../css/style.css" />
   <link type="text/css" rel="stylesheet" href="../css/landingPage.css" />
   <!-- custom icons via FontAwesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  
   <title>Dragon Room Bookings</title>
+  
 </head>
+ <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer ">
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Title</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content"><!-- Your content goes here --></div>
+  </main>
+</div>
+
 
 <body>
 
   <!-- Always shows a header, even in smaller screens. -->
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-  <header class="mdl-layout__header">
+  <header class="mdl-layout__header ">
+    
+    
+    
     <!-- Left aligned menu below button -->
 
 <!-- Hamburger Menu 
@@ -43,7 +65,7 @@ End Hamburger Menu-->
 </ul>
 -->
 
-    <div class="mdl-layout__header-row">
+    <div class="mdl-layout__header-row ">
       <!-- Title -->
       <a href="https://itp-module-x14346081.c9users.io/index.php">
         <span class="mdl-layout-title">
@@ -105,3 +127,6 @@ End Hamburger Menu-->
       <?php } ?>-->
       </h2></div>
   </div>
+  
+  
+  <!-- https://www.getmdl.io/components/index.html#layout-section -->

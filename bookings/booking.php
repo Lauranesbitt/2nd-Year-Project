@@ -1,12 +1,12 @@
 
-
+<?php include_once 'addBooking.php'; ?>
 
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--6-col">
     
     <p> Please choose a room and seats required:</p>
             
-    <form method="post"> 
+    <form id="bookingForm" method="post"> 
        <div class="mdl-grid">
           <div class="mdl-cell mdl-cell--6-col">
             <label for="room">Room:</label></br>
@@ -56,7 +56,8 @@
           </div>
           
         </div><!-- row end --><p>To finish the booking process, please click the 'complete' button below:</p>
-          <input type="submit" id="btn-addbooking" name="btn-addbooking" value="Complete" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"/>
+     
+        
           <!-- <a href="https://itp-module-x14346081.c9users.io/room.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Add a New Room</a> -->
         </form>
       </div>

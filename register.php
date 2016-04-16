@@ -27,10 +27,13 @@
             <div class="mdl-cell mdl-cell--6-col">
               <label for="email">Email:</label><br/>
               <input type="email" name="email" required="" placeholder="John123@gmail.com" /><br/>
-            </div>
+             
+              </div>
+            
             <div class="mdl-cell mdl-cell--6-col">
               <label for="username">Username:</label><br/>
               <input type="text" name="username" required="" placeholder="John123@gmail.com" /><br/>
+            
             </div>
           </div>
           <!-- row 3 -->
@@ -45,7 +48,10 @@
             </div>
           </div>
           <!-- row 4 -->
-          <br/><br/><button name="btn-signup" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Register</button><br/><br/>
+          <br/><br/><button name="btn-signup" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">submit</button>
+
+
+</br></br>
         </form><!-- ./Registration form end -->
       </section><!-- ./section end -->
     </div><!-- ./ column end -->

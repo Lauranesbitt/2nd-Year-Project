@@ -15,9 +15,17 @@ if($_SESSION['admin']=="no")
   </div>
 	<div class="mdl-cell mdl-cell--2-col"></div>
 </div>
->
 
 <?php include '../room.php' ?>
+
+<div class="mdl-grid panel2">
+	<div class="mdl-cell mdl-cell--2-col"></div>
+	<div class="mdl-cell mdl-cell--8-col">
+		<button type="submit" form="addRoomForm" onclick="location.reload();location.href='room.php'">Click me!</button>
+  </div>
+	<div class="mdl-cell mdl-cell--2-col"></div>
+</div>
+
 
 <?php include '../footer.php' ?>
 

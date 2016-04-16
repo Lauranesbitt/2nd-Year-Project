@@ -1,5 +1,6 @@
 <?php include_once 'admin/addRoom.php';
 
+
 session_start();
 if(isset($_SESSION['user'])=="")
 {
@@ -12,16 +13,15 @@ if(isset($_POST['btn-addbooking'])) //add room or add booking
 {
  $NAME = mysql_real_escape_string($_POST['NAME']);
 
- if(mysql_query("INSERT INTO bookings(name) VALUES ('$NAME')"))
+ if(mysql_query("INSERT INTO rooms(name) VALUES ('$NAME')"))
  {
-        echo"<script>alert('successfully added room');</script>";
+        echo("successfully added room");
  }
  else
  {
-        echo"<script>alert('error while adding your room...');</script>";
+        echo "error while adding your room";
  }
 }?>
-
 <!-- Add a New Room -->
 <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--4-col"></div>
@@ -30,6 +30,28 @@ if(isset($_POST['btn-addbooking'])) //add room or add booking
       <section class="login-register">
         <h3>Add a New Room</h3>
         <hr/>
+<?php
+$con = mysql_connect("localhost","x14346081","");
+if (!$con)
+  {
+  die('Could not connect: ' . mysql_error());
+  }
+ 
+mysql_select_db("x14300606", $con);
+ 
+$sql="INSERT INTO rooms (room, location,capacity,type,description)
+VALUES
+('$_POST[room]','$_POST[location]','$_POST[capacity]','$_POST[type]','$_POST[description]')";
+ 
+if (!mysql_query($sql,$con))
+  {
+  die('Error: ' . mysql_error());
+  }
+echo "1 record added";
+ 
+mysql_close($con)
+?>
+
         <!-- add booking form -->
         <form method="post"> 
     
@@ -63,55 +85,20 @@ if(isset($_POST['btn-addbooking'])) //add room or add booking
             ?>
             
             1.<input type="file" name="image" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light"></p>
-            2.<input type="submit" name="submit" value="Upload" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light"/>
+           
+           <input name = "submit" type = "submit" 
+                              id = "submit" value = "Submit">
         </form>
         
-            <?php
-                if(isset($_POST['submit'])){
-                    if(getimagesize($_FILES['image']['tmp_name'])== FALSE){
-                        echo "Please select an image.";
-                    }
-                    else{
-                        $image= addslashes($_FILES['image']['tmp_name']);
-                        $name= addslashes($_FILES['image']['name']);
-                        $image= file_get_contents($image);
-                        $image= base64_encode($image);
-                        saveimage($name,$image);
-                    }
-                }
-                //displayimage();
-                function saveimage($name,$image){
-                    $con=mysql_connect("localhost","x14346081","");
-                    mysql_select_db("c9",$con);
-                    $qry="insert into images (name,image) values ('$name','$image')";
-                    $result=mysql_query($qry,$con);
-                    if($result){
-                        echo "<br/>Image uploaded.";
-                    }
-                    else{
-                        echo "<br/>Image not uploaded.";
-                    }
-                }
-                function displayimage(){
-                    $con=mysql_connect("localhost","x14346081","");
-                    mysql_select_db("c9",$con);
-                    $qry="select * from images";
-                    $result=mysql_query($qry,$con);
-                    while($row = mysql_fetch_array($result)){
-                        echo '<img height="300" width="300" src="data:image,base64,'.$row[2].' "> ';
-                    }
-                    mysql_close($con);
-                    }
-            ?>
-          
-          </br><input type="submit" name="btn-addroom" value="Add Room" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+        
+                              
+        
       </section><!-- section end -->
     </div><!-- column end -->
     
     <div class="mdl-cell mdl-cell--4-col"></div>
 </div>
 <!-- End Add a New Room -->
-
 <!-- Update Room Info -->
 <div class="mdl-grid panel2">
   <div class="mdl-cell mdl-cell--3-col"></div>
@@ -120,7 +107,45 @@ if(isset($_POST['btn-addbooking'])) //add room or add booking
     <section class="login-register">
        <h3>Update Room Info</h3>
         <hr/>
-      
+        <?php
+          if(isset($_POST['update'])) {
+            $dbhost = 'localhost';
+            $dbuser = 'x14346081';
+            $dbpass = '';
+            
+            $conn = mysql_connect($dbhost, $dbuser, $dbpass);
+            
+            if(! $conn ) {
+               die('Could not connect: ' . mysql_error());
+            }
+            else{
+            $room = $_POST['room'];
+            $location = $_POST['location'];
+            $capacity = $_POST['capacity'];
+            $type = $_POST['type'];
+            $description = $_POST['description'];
+            
+            
+            
+            $sql = "UPDATE rooms ". "SET room = '$room' ";
+               $sql = "UPDATE rooms ". "SET location = '$location' " ;
+               $sql = "UPDATE rooms ". "SET capacity = '$capacity' ";
+               $sql = "UPDATE rooms ". "SET type = '$type' ";
+               $sql = "UPDATE rooms ". "SET description= '$description' "; 
+             
+            mysql_select_db('c9');
+            $retval = mysql_query( $sql, $conn );
+            
+            if(! $retval ) {
+               die('Could not update data: ' .mysql_error());
+            }
+            echo "Updated data successfully\n";
+            
+            mysql_close($conn);
+         }
+          }  
+           
+         else{   ?>
       <form method="post"> 
     
           <label for="room">Room:</label></br>
@@ -143,23 +168,24 @@ if(isset($_POST['btn-addbooking'])) //add room or add booking
           <textarea name="description" placeholder="eg. 70 computers available" rows="6" cols="32" maxlength="150"/></textarea></p>
           
           <label for="photo">Update Room Photo:</label></br>
-          <?php
-            ini_set('mysql.connect_timeout',300);
-            ini_set('default_socket_timeout',300);
-            ?>
+              1.<input type="file" name="image" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light"></p>
             
-            1.<input type="file" name="image" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light"></p>
-            2.<input type="submit" name="submit" value="Upload" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light"/>
+            
+            <input name = "update" type = "submit" 
+                              id = "update" value = "Update">
+                 
+            
         </form></p></br>
-          
-          <input type="submit" name="btn-updateroom" value="Update Room" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+        <?php
+             }      
+    ?>
+         
     </section>
   </div>
       
   <div class="mdl-cell mdl-cell--3-col"></div>
 </div>
 <!-- End Update Room Info -->
-
 <!-- Delete Room -->
 <div class="mdl-grid panel2">
   <div class="mdl-cell mdl-cell--3-col"></div>
@@ -172,15 +198,26 @@ if(isset($_POST['btn-addbooking'])) //add room or add booking
       <form method="post"> 
     
           <label for="room">Room:</label></br>
-            <select name="location">
-              <option value="">Select Room...</option>
-              <option value="1st Floor">SCR3</option>
-              <option value="2nd Floor">3.02</option>
-              <option value="3rd Floor">3.03</option>
-              <option value="4th Floor">3.04</option>
-            </select>
+           
+          <label for="room">Room Name:</label></br>
+          <input name="room" type="text" placeholder="eg. SCR3" required=""></p>
+           
             </p>
-          
+  <?php
+  
+  mysql_select_db( "c9");
+  $sql = "DELETE FROM rooms WHERE room = $room";
+if($sql($link, $sql)){
+    echo "Records were deleted successfully.";
+} else{
+    echo "ERROR: Could not able to execute ";
+}
+ 
+// Close connection
+
+?>
+	
+	
           <input type="submit" name="btn-deleteroom" value="Delete Room" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
     </section>
   </div>
@@ -188,3 +225,4 @@ if(isset($_POST['btn-addbooking'])) //add room or add booking
   <div class="mdl-cell mdl-cell--3-col"></div>
 </div>
 <!-- End Delete Room -->
+
