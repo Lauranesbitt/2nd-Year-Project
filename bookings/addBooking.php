@@ -1,48 +1,60 @@
 
+
 <?php
+
+include_once '../classes/dbconnect2.php';
+
 session_start();
 if(isset($_SESSION['user'])=="")
 {
- echo "<script>alert('Please log-in to view this page.');</script>";
- echo "<script>window.location = 'login.php';</script>";
+ echo "<script>alert('You must log in first to continue!');</script>";
+ echo "<script>window.location = 'https://itp-module-x14346081.c9users.io/login.php';</script>";
 }
-include_once '../classes/dbconnect.php';
 
 if(isset($_POST['btn-addbooking']))
 {
- $room = mysql_real_escape_string($_POST['room']);
- $capacity = mysql_real_escape_string($_POST['capacity']);
- $date = mysql_real_escape_string($_POST['date']);
- $time = mysql_real_escape_string($_POST['time']);
- $requirements = mysql_real_escape_string($_POST['requirements']);
- if(mysql_query("INSERT INTO bookings(room, capacity, date, time, requirements) VALUES ('$room','$capacity','$date','$time','$requirements')"))
- {
-        echo"<script>alert('Your booking had been created. Go to My Bookings to review.');</script>";
- }
- else
- {
-        echo"<script>alert('Sorry, there was an error creating your booking.');</script>";
- }
+  $db = Connect();
+  $room = mysqli_real_escape_string($db, $_POST['room']);
+  $capacity = mysqli_real_escape_string($db, $_POST['capacity']);
+  $requirements = mysqli_real_escape_string($db, $_POST['requirements']);
+  $date = mysqli_real_escape_string($db, $_POST['date']);
+  $time = mysqli_real_escape_string($db, $_POST['time']);
+  $user = mysqli_real_escape_string($db, $_SESSION['user']);
+  $sql = "INSERT INTO bookings(ROOM ,REQUIREMENTS, DATE, TIME, CAPACITY, USER) VALUES('".$room."','".$requirements."','".$date."','".$time."','".$capacity."','".$user."')";
+  $result = $db->query($sql);
+  
+  if ($result){
+   //message
+     "<script>alert('Success.');</script>";
+  } else {
+   //message
+   echo mysqli_error($db);
+  }
+  $db->close();
+   echo "<script>window.location = 'https://itp-module-x14346081.c9users.io/login.php';</script>";
 }
 ?>
+
+
+
 
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--6-col">
     
     <p> Please choose a room and seats required:</p>
             
-    <form id="bookingForm" method="post"> 
+    <form id="bookingForm" action="addBooking.php" method="post"> 
        <div class="mdl-grid">
           <div class="mdl-cell mdl-cell--6-col">
             <label for="room">Room:</label></br>
             
-            <select id="roomList" name="roomList" autofocus required onchange="document.getElementById('roomImage').src = this.value">
-              <option value="http://placehold.it/1200">Select a room</option>
-              <option value="../images/rooms/SCR3-2.jpg">SCR3</option>
-              <option value="../images/rooms/3.02-1.jpg">3.02</option>
-              <option value="../images/rooms/3.03.jpg">3.03</option>
-              <option value="../images/rooms/3.04.jpg">3.04</option>
-              <option value="../images/rooms/Theatre-3-1.jpg">Theatre 3</option>
+           <select id="roomList" name="room" autofocus required="" onchange="document.getElementById('roomImage').src = ('../images/rooms/'+this.value+'.jpg')">
+              <option value="select_room">Select a room</option>
+              <option value="SCR3">SCR3</option>
+              <option value="3.02">3.02</option>
+              <option value="3.03">3.03</option>
+              <option value="3.04">3.04</option>
+              <option value="Theatre3">Theatre 3</option>
             </select>
             
           </div>
@@ -57,16 +69,13 @@ if(isset($_POST['btn-addbooking']))
         <!-- row start -->  
        <div class="mdl-grid">
           <div class="mdl-cell mdl-cell--6-col">
-          <label for="date">Date Chosen:</label>
-          <p>
-            {{date | date:'yyyy/MM/dd'}}
-          </p></br>
+          <label for="date">Date Chosen:</label><br/>
+            <input name="date"readonly required="" value="{{date | date:'yyyy/MM/dd'}}" />
+          </br>
           </div>
-          
           <div class="mdl-cell mdl-cell--6-col">
-          <label for="time">Time Chosen:</label>
-          <p>
-            {{date | date:'HH:mm a'}}
+          <label for="time">Time Chosen:</label><br/>
+             <input name="time" readonly required="" value="{{date | date:'HH:mm'}}" />
           </p></br>
           </div>
           
@@ -75,7 +84,7 @@ if(isset($_POST['btn-addbooking']))
          <!-- row start -->
          <div class="mdl-grid">
           <div class="mdl-cell mdl-cell--12-col">
-          <label for="requirements">Special Requirements:</label></br>
+          <label for="requirements">Additional Details:</label></br>
           <textarea name="requirements" placeholder="eg. Wheelchair accessibility" rows="6" cols="50" maxlength="150"/></textarea></p>
           <!-- rows="6" cols="32" maxlength="150"/></textarea></p> -->
           </div>
@@ -85,25 +94,14 @@ if(isset($_POST['btn-addbooking']))
           <!-- <a href="https://itp-module-x14346081.c9users.io/room.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Add a New Room</a> -->
         </form>
 
- <form action="addbooking.php" method="post">
-          <input type="submit" />
-        </form>
-        
       </div>
         
     <div class="mdl-cell mdl-cell--6-col">
       <div class="room">
         
           
-          <img class="photo" id="roomImage" src="http://placehold.it/1000" alt="Please contact a system administrator if you see this"/>
+          <img class="photo" id="roomImage" src="../images/rooms/select_room_2.png" alt="Please contact a system administrator if you see this"/>
           
         
       </div>
     </div>
-              
-              
-                     
-                      
-                      
-                     
-<!-- image chooser  -->

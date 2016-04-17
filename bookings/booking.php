@@ -1,4 +1,3 @@
-
 <?php include_once 'addBooking.php'; ?>
 
   <div class="mdl-grid">
@@ -13,6 +12,7 @@
             
             <select id="roomList" name="roomList" autofocus required onchange="document.getElementById('roomImage').src = this.value">
               <option value="http://placehold.it/1200">Select a room</option>
+          <!--<option value="../images/rooms/select_room.png">Select a room</option>-->
               <option value="../images/rooms/SCR3-2.jpg">SCR3</option>
               <option value="../images/rooms/3.02-1.jpg">3.02</option>
               <option value="../images/rooms/3.03.jpg">3.03</option>

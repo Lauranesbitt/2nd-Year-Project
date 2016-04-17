@@ -50,10 +50,10 @@
    <table id="mytable" class="footable mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
      <thead>
         <tr>
-          <th data-sort-initial="descending" colspan='3' class='mdl-data-table__cell--non-numeric'>Room</th>
-          <th data-sort-ignore="true" colspan='3' class='mdl-data-table__cell--non-numeric'>Type</th>
-          <th colspan='6' class='mdl-data-table__cell--non-numeric'>Description</th>
-          <th data-sort-initial="ascending" data-type="numeric" colspan='6' class='mdl-data-table__cell--numeric'>Capacity</th>
+          <th data-sort-initial="Descending">Room</th>
+          <th data-sort-initial="Descending">Type</th>
+          <th data-type="ignore">Description</th>
+          <th data-type="numeric" data-sort-initial="Descending">Capacity</th>
         </tr> 
       </thead>
       <tbody>
@@ -63,10 +63,10 @@
         foreach($res as $item) { //foreach element in $arr
             echo "
             <tr>
-              <td colspan='3' class='mdl-data-table__cell--non-numeric'>".$item['ROOM']."</td>
-              <td colspan='3' class='mdl-data-table__cell--non-numeric'>".$item['TYPE']."</td>
-              <td colspan='6' class='mdl-data-table__cell--non-numeric'>".$item['DESCRIPTION']."</td>
-              <td colspan='6' class='mdl-data-table__cell--numeric'>".$item['CAPACITY']."</td>
+              <td  >".$item['ROOM']."</td>
+              <td  >".$item['TYPE']."</td>
+              <td  >".$item['DESCRIPTION']."</td>
+              <td  >".$item['CAPACITY']."</td>
             </tr>
             ";//etc
         } ?>

@@ -34,8 +34,7 @@
     <!-- Heading --> 
     <form name="search_form" method="POST" action="display_viewBookings.php">
   
-        Search: <input type="text" name="search_box" value="" />
-        <input type="submit" name="search" value="Search the table">
+    
       
     </form>
     <!--
@@ -47,25 +46,44 @@
      <thead>
         <tr>
           <th data-sort-initial="descending" colspan='3' class='mdl-data-table__cell--non-numeric'>Room</th>
+          <th data-sort-initial="descending" colspan='3' class='mdl-data-table__cell--non-numeric'>Details</th>
           <th data-sort-initial="ascending" data-sort-ignore="true" colspan='3' class='mdl-data-table__cell--non-numeric'>Capacity</th>
-          <th  colspan='6' class='mdl-data-table__cell--non-numeric'>Date</th>
+          <th colspan='6' class='mdl-data-table__cell--non-numeric'>Date</th>
           <th data-sort-initial="ascending" data-type="numeric" colspan='6' class='mdl-data-table__cell--numeric'>Time</th>
         </tr> 
       </thead>
       <tbody>
         
         <!-- Show only bookings -->
-        <?//php 
-        if(isset($_SESSION['user'])!=""){
-          ?>
-         <a class="mdl-navigation__link" <p><strong><font color="white">Logged in as: <?php echo $_SESSION['user']; ?></font></strong></a></p>
-         <a href="https://itp-module-x14346081.c9users.io/logout.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Logout</a>
-      <?//php } ?>
-      
+      <!-- Filter - only show bookings for the logged-on user -->
       <?php
-//      where (($_SESSION['user'])=="userID")
-        $res = json_decode($result, true);
-        foreach($res as $item) { //foreach element in $arr
+          $user_id = $_SESSION['user'];
+          $sql = "SELECT * from bookings WHERE user = '$user_id'";
+          $query = mysql_query($sql) or die(mysql_error());
+      ?>
+
+      
+      <?php 
+      $res = json_decode($result, true);
+      foreach($res as $item);
+      while ($row = mysql_fetch_array($query)) {?>
+      
+      <tr>
+        <td colspan='3' class='mdl-data-table__cell--non-numeric'><?php echo $row['ROOM'];?></td>
+        <td colspan='3' class='mdl-data-table__cell--non-numeric'><?php echo $row['REQUIREMENTS'];?></td>
+        <td colspan='3' class='mdl-data-table__cell--non-numeric'><?php echo $row['CAPACITY'];?></td>
+        <td colspan='6' class='mdl-data-table__cell--non-numeric'><?php echo $row['DATE'];?></td>
+        <td colspan='6' class='mdl-data-table__cell--numeric'><?php echo $row['TIME'];?></td> 
+      </tr>
+      
+<!--      where (($_SESSION['user'])=="user") -->
+<!--      where (($_SESSION['user'])==.$item['user'].") -->
+<!--     //if (($_SESSION['user'])!="user")
+        //$query = "SELECT * FROM bookings WHERE user_id= 'registered.user_id' ";
+        //$query = "SELECT * FROM bookings WHERE prod_price = 49"; -->
+        <!-- $res = json_decode($result, true);
+        foreach($res as $item)
+        { //foreach element in $arr
             echo "
             <tr>
               <td  colspan='3' class='mdl-data-table__cell--non-numeric'>".$item['ROOM']."</td>
@@ -73,8 +91,8 @@
               <td colspan='6' class='mdl-data-table__cell--non-numeric'>".$item['DATE']."</td>
               <td colspan='6' class='mdl-data-table__cell--numeric'>".$item['TIME']."</td>
             </tr>
-            ";//etc
-        } ?>
+            ";//etc-->
+        <?php } ?>
         </tbody>
      </table>
      <!-- End Available Rooms Table -->

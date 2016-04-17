@@ -19,7 +19,7 @@ if(isset($_POST['btn-login']))
  {
   $_SESSION['user'] = $row['username'];
   $_SESSION['admin'] = "yes";
-  header( 'Location: admin/adminmanager.php');
+  header( 'Location: admin/roommanager.php');
   echo "<script type='text/javascript'>alert('You have now logged-in.');</script>";
  }
  else
@@ -42,21 +42,22 @@ if(isset($_POST['btn-login']))
         <form id="loginform" action="" method="post">
           
           <label for="username">Username/Email:</label><br/>
-          <input type="text" name="email" class="required" "mdl-textfield__input" placeholder="John123@gmail.com" /></p>
+          <input type="text" name="email" class="required" "mdl-textfield__input" placeholder="Email" /></p>
           
           <label for="password">Password:</label><br/>
-          <input type="password" name="password" class="required" placeholder="P@55w0rd" /></br></br>
+          <input type="password" name="password" class="required" placeholder="Password" /></br></br>
           
-          <button type="submit" name="btn-login" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Login</button><br/><br/>
+          <button type="submit" name="btn-login" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Admin Login</button><br/><br/>
           
-        <label for="remember" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+       <!-- <label for="remember" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
               <input type="checkbox" value="remember" id="remember" class="mdl-checkbox__input">
               <span class="mdl-checkbox__label">Stay logged-in</span>
         </label></p>
           
-          <p><a href="forget.php" onclick="forget.php" id="forget">Forgot Password?</a></p>
+          <p><a href="forget.php" onclick="forget.php" id="forget">Forgot Password?</a></p>-->
           
         </form><!-- ./login form end -->
+        <?php include 'extras.php' ?>
       </section><!-- section end-->
     </div><!-- column end -->
     

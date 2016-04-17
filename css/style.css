@@ -43,6 +43,14 @@ section{
 .full-width{
     width: 100%;
 }
+/* header styling */
+.brand{
+    color:#fff;
+    text-decoration: none;
+}
+.brand:hover{
+    text-decoration: underline;
+}
 
 /*Material Design overwrites */
 

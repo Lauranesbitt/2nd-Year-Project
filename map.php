@@ -1,60 +1,37 @@
 <?php include 'header.php'; ?>
-
-<div class="mdl-grid panel2">
-	<div class="mdl-cell mdl-cell--2-col"></div>
-	<div class="mdl-cell mdl-cell--8-col">
-		<h2>Floor Plan</h2>
+<div class="clearfix"></div><br/><br/>
+ <div class="mdl-grid">
+    <section class="mdl-cell mdl-cell--10-col mdl-cell--1-offset align-centered mdl-shadow--2dp">
+    <h2>Floor Plan</h2>
 		Not sure where to find a room?</br>
-		Use the handy maps below to find your way around.
-    </div>
-	<div class="mdl-cell mdl-cell--2-col"></div>
-</div>
+		Use the handy maps below to find your way around.<br/>
+            
+    <form id="bookingForm" method="post"> 
+       <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--7-col align-centered">
+            <label for="room">Floor:</label></br>
+    		<p>You can view the floor map from the dropdown below.</p>
+            
+            <select id="mapList" name="mapList" autofocus required onchange="document.getElementById('mapImage').src = this.value">
+              <option value="../images/floors/map.jpg">Select a floor</option>
+              <option value="../images/floors/ground-floor.jpg">Ground Floor</option>
+              <option value="../images/floors/1st-floor.jpg">Floor 1</option>
+              <option value="../images/floors/2nd-floor.jpg">Floor 2</option>
+              <option value="../images/floors/3rd-floor.jpg">Floor 3</option>
+              <option value="../images/floors/4th-floor.jpg">Floor 4</option>
+            </select>
+            
+          </div>
+        </div><!-- row end -->
+        <input type="submit" form"form-changeMap" id="btn-changeMap" name="btn-changeMap" value="Complete" class="hidden"/>
+          <!-- <a href="https://itp-module-x14346081.c9users.io/room.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Add a New Room</a> -->
+        </form>
 
-<!-- Floor Plan Photos -->
-<div class="mdl-grid panel2">
-	<div class="mdl-cell mdl-cell--2-col"></div>
-	<div class="mdl-cell mdl-cell--8-col">
-		Ground Floor:</br>
-	    <img src="images/floors/Ground Floor.jpg" alt="Ground Floor" height="70%" width="70%">
-    </div>
-	<div class="mdl-cell mdl-cell--2-col"></div>
+    <div class="mdl-cell mdl-cell--6-col align-centered">
+		<div class="room">
+        	 <img class="photo" id="mapImage" src="../images/floors/map.jpg" alt="Please contact a system administrator if you see this"/>
+        </div>
+<div class="clearfix"></div><br/><br/>
+    </section>
 </div>
-
-<div class="mdl-grid panel2">
-	<div class="mdl-cell mdl-cell--2-col"></div>
-	<div class="mdl-cell mdl-cell--8-col">
-		First Floor:</br>
-	    <img src="images/floors/1st Floor.jpg" alt="1st Floor" height="70%" width="70%">
-    </div>
-	<div class="mdl-cell mdl-cell--2-col"></div>
-</div>
-
-<div class="mdl-grid panel2">
-	<div class="mdl-cell mdl-cell--2-col"></div>
-	<div class="mdl-cell mdl-cell--8-col">
-		Second Floor:</br>
-	    <img src="images/floors/2nd Floor.jpg" alt="2nd Floor" height="70%" width="70%">
-    </div>
-	<div class="mdl-cell mdl-cell--2-col"></div>
-</div>
-
-<div class="mdl-grid panel2">
-	<div class="mdl-cell mdl-cell--2-col"></div>
-	<div class="mdl-cell mdl-cell--8-col">
-		Third Floor:</br>
-	    <img src="images/floors/3rd Floor.jpg" alt="3rd Floor" height="70%" width="70%">
-    </div>
-	<div class="mdl-cell mdl-cell--2-col"></div>
-</div>
-
-<div class="mdl-grid panel2">
-	<div class="mdl-cell mdl-cell--2-col"></div>
-	<div class="mdl-cell mdl-cell--8-col">
-		Fourth Floor:</br>
-	    <img src="images/floors/4th Floor.jpg" alt="4th Floor" height="70%" width="70%">
-    </div>
-	<div class="mdl-cell mdl-cell--2-col"></div>
-</div>
-<!-- End Floor Plan Photos -->
-
 <?php include 'footer.php'; ?>

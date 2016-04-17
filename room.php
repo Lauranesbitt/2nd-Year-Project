@@ -9,18 +9,40 @@ if(isset($_SESSION['user'])=="")
 }
 include_once 'classes/dbconnect.php';
 
-if(isset($_POST['btn-addbooking'])) //add room or add booking
+if( $_POST )
 {
- $NAME = mysql_real_escape_string($_POST['NAME']);
+  $con = mysql_connect("localhost","x14346081","");
 
- if(mysql_query("INSERT INTO rooms(name) VALUES ('$NAME')"))
- {
-        echo("successfully added room");
- }
- else
- {
-        echo "error while adding your room";
- }
+  if (!$con)
+  {
+    die('Could not connect: ' . mysql_error());
+  }
+
+  mysql_select_db("c9", $con);
+
+  $room = $_POST['room'];
+  $location = $_POST['location'];
+  $capacity = $_POST['capacity'];
+  $type = $_POST['type'];
+$description = $_POST['description'];
+
+  $room = mysql_real_escape_string($room);
+  $location = mysql_real_escape_string($location);
+  $capacity = mysql_real_escape_string($capacity);
+  $type = mysql_real_escape_string($type);
+$description = mysql_real_escape_string($description);
+
+ 
+
+  $query = "INSERT INTO `c9`.`rooms` (`room`, 'location',`capacity`, `type`,
+        `description`) VALUES (NULL, '$room',
+        '$location', '$capacity', '$type','$description');";
+
+  mysql_query($query);
+
+  echo "<h2>Thank you for your Comment!</h2>";
+
+  mysql_close($con);
 }?>
 <!-- Add a New Room -->
 <div class="mdl-grid">
@@ -37,7 +59,7 @@ if (!$con)
   die('Could not connect: ' . mysql_error());
   }
  
-mysql_select_db("x14300606", $con);
+mysql_select_db("c9", $con);
  
 $sql="INSERT INTO rooms (room, location,capacity,type,description)
 VALUES
@@ -113,9 +135,9 @@ mysql_close($con)
             $dbuser = 'x14346081';
             $dbpass = '';
             
-            $conn = mysql_connect($dbhost, $dbuser, $dbpass);
+            $con = mysql_connect($dbhost, $dbuser, $dbpass);
             
-            if(! $conn ) {
+            if(! $con ) {
                die('Could not connect: ' . mysql_error());
             }
             else{
@@ -134,14 +156,14 @@ mysql_close($con)
                $sql = "UPDATE rooms ". "SET description= '$description' "; 
              
             mysql_select_db('c9');
-            $retval = mysql_query( $sql, $conn );
+            $retval = mysql_query( $sql, $con );
             
             if(! $retval ) {
                die('Could not update data: ' .mysql_error());
             }
             echo "Updated data successfully\n";
             
-            mysql_close($conn);
+            mysql_close($con);
          }
           }  
            
@@ -192,33 +214,34 @@ mysql_close($con)
   
   <div class="mdl-cell mdl-cell--6-col mdl-shadow--2dp">
     <section class="login-register">
+       
+       
        <h3>Delete Room</h3>
         <hr/>
-      
-      <form method="post"> 
-    
-          <label for="room">Room:</label></br>
-           
-          <label for="room">Room Name:</label></br>
-          <input name="room" type="text" placeholder="eg. SCR3" required=""></p>
-           
-            </p>
-  <?php
-  
-  mysql_select_db( "c9");
-  $sql = "DELETE FROM rooms WHERE room = $room";
-if($sql($link, $sql)){
-    echo "Records were deleted successfully.";
-} else{
-    echo "ERROR: Could not able to execute ";
-}
- 
-// Close connection
+        <?php
+            mysql_connect("localhost", "x14346081", "") 
+            or die("Connection Failed"); 
+            mysql_select_db("c9")
+            or die("Connection Failed"); 
+            
+            $room = $_POST['room']; $query = "delete from rooms where room = '".$room."'"; 
+            if(mysql_query($query)){ 
+              echo "deleted";
+              
+            } else{
+              echo "fail";
+              
+            } 
+               
+            
 
-?>
-	
-	
-          <input type="submit" name="btn-deleteroom" value="Delete Room" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+          ?>
+          <form method = "post">
+         <label for="room">Room Name:</label></br>
+          <input name="room" type="text" placeholder="eg. SCR3" required=""></p>
+         <input name = "delete" type = "submit" 
+                              id = "delete" value = "Delete">
+   </form>
     </section>
   </div>
       

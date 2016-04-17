@@ -7,5 +7,5 @@ if(!mysql_connect("localhost","x14346081",""))
 if(!mysql_select_db("c9"))
 {
      die('oops database selection problem ! --> '.mysql_error());
-}
+} 
 ?> 

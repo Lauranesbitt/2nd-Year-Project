@@ -15,33 +15,33 @@
           <div class="mdl-grid">
             <div class="mdl-cell mdl-cell--6-col">
               <label for="firstname">First name:</label><br/>
-              <input type="text" name="firstname" required="" placeholder="John" />
+              <input type="text" name="firstname" required="" placeholder="First name" />
             </div>
             <div class="mdl-cell mdl-cell--6-col">
               <label for="lastname">Last Name:</label><br/>
-              <input type="text" name="lastname" required="" placeholder="Smith" />
+              <input type="text" name="lastname" required="" placeholder="Last name" />
             </div>
           </div>
           <!-- row 2 -->
           <div class="mdl-grid">
             <div class="mdl-cell mdl-cell--6-col">
               <label for="email">Email:</label><br/>
-              <input type="email" name="email" required="" placeholder="John123@gmail.com" /><br/>
+              <input type="email" name="email" required="" placeholder="Enter your email" /><br/>
             </div>
             <div class="mdl-cell mdl-cell--6-col">
               <label for="username">Username:</label><br/>
-              <input type="text" name="username" required="" placeholder="John123@gmail.com" /><br/>
+              <input type="text" name="username" required="" placeholder="Confirm email" /><br/>
             </div>
           </div>
           <!-- row 3 -->
           <div class="mdl-grid">
             <div class="mdl-cell mdl-cell--6-col">
               <label for="password">Password:</label><br/>
-              <input type="password" name="password" required="" placeholder="P@55w0rd" /><br/>
+              <input type="password" name="password" required="" placeholder="Enter password" /><br/>
             </div>
             <div class="mdl-cell mdl-cell--6-col">
               <label for="confirmpassword">Confirm Password:</label><br/>
-              <input type="password" name="confirmpassword" required="" placeholder="P@55w0rd" /><br/>
+              <input type="password" name="confirmpassword" required="" placeholder="Repeat password" /><br/>
             </div>
           </div>
           <!-- row 4 -->
@@ -55,15 +55,9 @@
           <!-- row 5 -->
           <br/><br/><button name="btn-signupadmin" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Register</button><br/><br/>
         </form><!-- ./Registration form end -->
+        <?php include 'extras.php'; ?>
       </section><!-- ./section end -->
     </div><!-- ./ column end -->
-    <div class="mdl-cell mdl-cell--3-col">
-      <section class="login-register">
-        <a href="login.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light">User Login</a></p>
-        <a href="loginadmin.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light">Admin Login</a></p>
-        <a href="register.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light">Register as User</a></p>
-      </section><!-- section end--> 
-    </div>
   </div>
   
   <!--

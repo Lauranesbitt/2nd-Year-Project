@@ -1,4 +1,4 @@
-<?<?php include '../header.php';
+<?php include '../header.php';
 if(isset($_SESSION['user'])=="")
 {
  echo "<script>alert('Please log-in before viewing this page.');</script>";
@@ -220,8 +220,7 @@ if(isset($_SESSION['user'])=="")
           
       </div>
     </script>
-        <button type="submit" form="bookingForm" onclick="location.reload();location.href='booking.php'">Click me!</button>
-    <label for="btn-addbooking" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Complete</label>
+        <label for="btn-addbooking" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Complete</label>
      </section>
   </section>
 </div>
@@ -263,11 +262,6 @@ if(isset($_SESSION['user'])=="")
   <div class="mdl-cell mdl-cell--1-col"></div>
 </div>
 <!-- End My Bookings -->
-
-
- <?php include 'fetchRegistered.php'; ?>
-
-
 
 <!-- Filter -->
 <!--<div class="mdl-grid">

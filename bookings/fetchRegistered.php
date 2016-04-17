@@ -39,20 +39,24 @@
     <!-- Heading --> 
     <form name="search_form" method="POST" action="display_viewBookings.php">
   
+        <!-- Search Users
         Search: <input type="text" name="search_box" value="" />
         <input type="submit" name="search" value="Search the table">
+        -->
       
     </form>
     <h2>Registered Users</h2>
+    <!--
     <a href="bookings/bookingmanager.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"><span aria-hidden="true" class="arrow_carrot-up_alt2" ></span> Book a Room</a></p>
+    -->
 <!-- End Heading --> 
    <table id="mytable" class="footable mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
      <thead>
         <tr>
-          <th data-sort-initial="descending" colspan='3' class='mdl-data-table__cell--non-numeric'>Firstname</th>
-          <th data-sort-ignore="true" colspan='3' class='mdl-data-table__cell--non-numeric'>Lastname</th>
-          <th  colspan='6' class='mdl-data-table__cell--non-numeric'>Username</th>
-          <th data-sort-initial="ascending" data-type="numeric" colspan='6' class='mdl-data-table__cell--numeric'>Email</th>
+          <th data-sort-initial="descending"  class='mdl-data-table__cell--non-numeric'>Firstname</th>
+          <th data-sort-initial="descending"  class='mdl-data-table__cell--non-numeric'>Lastname</th>
+          <th data-sort-initial="descending"  class='mdl-data-table__cell--non-numeric'>Username</th>
+          <th data-sort-initial="descending"  class='mdl-data-table__cell--numeric'>Email</th>
         </tr> 
       </thead>
       <tbody>
@@ -62,10 +66,10 @@
         foreach($res as $item) { //foreach element in $arr
             echo "
             <tr>
-              <td colspan='3' class='mdl-data-table__cell--non-numeric'>".$item['firstname']."</td>
-              <td colspan='3' class='mdl-data-table__cell--non-numeric'>".$item['lastname']."</td>
-              <td colspan='6' class='mdl-data-table__cell--non-numeric'>".$item['username']."</td>
-              <td colspan='6' class='mdl-data-table__cell--numeric'>".$item['email']."</td>
+              <td  class='mdl-data-table__cell--non-numeric'>".$item['firstname']."</td>
+              <td  class='mdl-data-table__cell--non-numeric'>".$item['lastname']."</td>
+              <td  class='mdl-data-table__cell--non-numeric'>".$item['username']."</td>
+              <td  class='mdl-data-table__cell--numeric'>".$item['email']."</td>
             </tr>
             ";//etc
         } ?>

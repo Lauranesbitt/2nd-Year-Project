@@ -22,6 +22,7 @@ session_start();
   <title>Dragon Room Bookings</title>
   
 </head>
+
  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer ">
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">Title</span>
@@ -67,7 +68,7 @@ End Hamburger Menu-->
 
     <div class="mdl-layout__header-row ">
       <!-- Title -->
-      <a href="https://itp-module-x14346081.c9users.io/index.php">
+      <a class=" brand" href="https://itp-module-x14346081.c9users.io/index.php">
         <span class="mdl-layout-title">
           <img src="https://itp-module-x14346081.c9users.io/images/header/logo2.png" alt="logo" style="width:15%;height:15%;"/>
           Dragon Room Booking
@@ -91,7 +92,8 @@ End Hamburger Menu-->
        <?php 
           if($_SESSION['admin']=="yes"){
             ?>
-            <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/admin/adminmanager.php">Room Manager</a>
+            <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/admin/usermanager.php">User Manager</a>
+            <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/admin/roommanager.php">Room Manager</a>
         <?php } ?>
         
         <!-- Show 'Logout' if user/admin is loggged in-->
