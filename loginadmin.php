@@ -26,6 +26,7 @@ if(isset($_POST['btn-login']))
  {
   ?>
         <script>alert('Wrong details entered, please try again.');</script>
+ echo "<script>window.location = 'https://itp-module-x14346081.c9users.io/loginadmin.php';</script>";
         <?php
  }
  

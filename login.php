@@ -1,4 +1,6 @@
 
+	
+	
 <?php
 include_once 'classes/dbconnect.php';
 session_start();
@@ -27,6 +29,7 @@ if(isset($_POST['btn-login']))
  {
   ?>
         <script>alert('Wrong details entered, please try again.');</script>
+ echo "<script>window.location = 'login.php';</script>";
         <?php
  }
 }

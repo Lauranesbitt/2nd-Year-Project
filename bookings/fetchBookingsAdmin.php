@@ -6,7 +6,7 @@
   
   $db = new DbBookings();
   
-  $result = $db->viewBookings();
+  $result = $db->viewBookingsAdmin();
   if($result != false){
     $result = json_encode($result);
   }else{
@@ -43,39 +43,38 @@
    <table id="mytable" class="footable mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
      <thead>
         <tr>
-          <th data-sort-initial="true" >Room</th>
-          <th data-sort-initial="true" >Capacity</th>
-          <th data-sort-initial="true" >Details</th>
-          <th data-sort-initial="true" >Date</th>
-          <th data-sort-initial="true" data-type="numeric" >Time</th>
+          <th data-sort-initial="descending" >Room</th>
+<!--      <th data-sort-initial="descending" colspan='3' class='mdl-data-table__cell--non-numeric'>Details</th> -->
+          <th data-sort-initial="ascending"  >Capacity</th>
+<!--      <th data-sort-initial="ascending" colspan='3' class='mdl-data-table__cell--non-numeric'>Capacity</th> -->
+          <th >Date</th>
+          <th data-sort-initial="ascending" data-type="numeric" >Time</th>
+          <th data-sort-initial="descending" >User</th>
         </tr> 
       </thead>
       <tbody>
         
         <!-- Show only bookings -->
       <!-- Filter - only show bookings for the logged-on user -->
-              <?php
-                  $user_id = $_SESSION['user'];
-                  $sql = "SELECT * from bookings WHERE user = '$user_id'";
-                  $query = mysql_query($sql) or die(mysql_error());
-              ?>
         
-              <?php 
-              $res = json_decode($result, true);
-              foreach($res as $item); //foreach element in $arr
-              while ($row = mysql_fetch_array($query)) {?>
-              
+          <?php 
+          $res = json_decode($result, true);
+          foreach($res as $item)
+           //foreach element in $arr
+              echo "
               <tr>
-                <td ><?php echo $row['ROOM'];?></td>
-                <td ><?php echo $row['CAPACITY'];?></td>
-                <td ><?php echo $row['REQUIREMENTS'];?></td>
-                <td ><?php echo $row['DATE'];?></td>
-                <td ><?php echo $row['TIME'];?></td> 
+                <td >".$item['ROOM']."</td>
+                <td >".$item['CAPACITY']."</td>
+                <td >".$item['DATE']."</td>
+                <td >".$item['TIME']."</td>
+                <td >".$item['USER']."</td>
               </tr>
-              
-                <?php } ?>
-              </tbody>
-            </table>
+                "
+
+            ?>
+            
+          </tbody>
+        </table>
      <!-- End Available Rooms Table -->
 </section>
         

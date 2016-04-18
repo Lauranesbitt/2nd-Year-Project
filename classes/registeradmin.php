@@ -21,12 +21,14 @@ if(isset($_POST['btn-signupadmin']))
  {
   ?>
         <script>alert('Thank you, your details have been added successfully.');</script>
+ echo "<script>window.location = 'https://itp-module-x14346081.c9users.io/index.php';</script>";
         <?php
  }
  else
  {
   ?>
         <script>alert('Sorry, there was an error adding your detials. Please try again.');</script>
+ echo "<script>window.location = 'https://itp-module-x14346081.c9users.io/login.php';</script>";
         <?php
  }
 }

@@ -5,19 +5,54 @@ if($_SESSION['admin']=="no")
  echo "<script>window.location = 'https://itp-module-x14346081.c9users.io/index.php';</script>";
 }?>
 
-<?php include_once 'addRoom.php'; ?>
-
+<!-- Heading -->
 <div class="mdl-grid panel2">
 	<div class="mdl-cell mdl-cell--2-col"></div>
 	<div class="mdl-cell mdl-cell--8-col">
 		<h2>User Manager</h2>
 		You can use this page to manage registered users and their bookings.
+		<p>Room Manager: <a href="roommanager.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Enter</a></p>
+
   </div>
 	<div class="mdl-cell mdl-cell--2-col"></div>
 </div>
+<!-- Heading end -->
 
-<?php include '../bookings/fetchRegistered.php'; ?>
+<!-- Registered Users -->
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--1-col"></div>
+  
+  <div class="mdl-cell mdl-cell--10-col mdl-shadow--2dp">
+    <section class="login-register">
+      <h3>Registered Users</h3>
+      <hr/>
+      
+      <p>Please select a user for more info:</p>
+      <?php include '../bookings/fetchRegistered.php'; ?>
+    </section>
+  </div>
+  
+  <div class="mdl-cell mdl-cell--1-col"></div>
+</div>
+<!-- Registered Users end-->
 
+<!-- User Bookings-->
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--1-col"></div>
+  
+  <div class="mdl-cell mdl-cell--10-col mdl-shadow--2dp">
+    <section class="login-register">
+      <h3>User Bookings</h3>
+      <hr/>
+      
+      <p>Please select a booking for more info:</p>
+    <?php include '../bookings/fetchBookingsAdmin.php' ?>
+    </section>
+  </div>
+  
+  <div class="mdl-cell mdl-cell--1-col"></div>
+</div>
+<!-- User Bookings end-->
 <?php include '../footer.php' ?>
 
 <!-- Heading -->

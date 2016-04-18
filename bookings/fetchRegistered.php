@@ -30,11 +30,7 @@
 </form>-->
 
 
-
-
-
-
-<!-- My Bookings -->
+<!-- Registered Users -->
     <section class="login-register"> 
     <!-- Heading --> 
     <form name="search_form" method="POST" action="display_viewBookings.php">
@@ -45,7 +41,6 @@
         -->
       
     </form>
-    <h2>Registered Users</h2>
     <!--
     <a href="bookings/bookingmanager.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"><span aria-hidden="true" class="arrow_carrot-up_alt2" ></span> Book a Room</a></p>
     -->
@@ -53,10 +48,10 @@
    <table id="mytable" class="footable mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
      <thead>
         <tr>
-          <th data-sort-initial="descending"  class='mdl-data-table__cell--non-numeric'>Firstname</th>
-          <th data-sort-initial="descending"  class='mdl-data-table__cell--non-numeric'>Lastname</th>
-          <th data-sort-initial="descending"  class='mdl-data-table__cell--non-numeric'>Username</th>
-          <th data-sort-initial="descending"  class='mdl-data-table__cell--numeric'>Email</th>
+          <th data-sort-initial="descending"  >Firstname</th>
+          <th data-sort-initial="descending"  >Lastname</th>
+          <th data-sort-initial="descending"  >Username</th>
+          <th data-sort-initial="descending"  >Email</th>
         </tr> 
       </thead>
       <tbody>
@@ -66,10 +61,10 @@
         foreach($res as $item) { //foreach element in $arr
             echo "
             <tr>
-              <td  class='mdl-data-table__cell--non-numeric'>".$item['firstname']."</td>
-              <td  class='mdl-data-table__cell--non-numeric'>".$item['lastname']."</td>
-              <td  class='mdl-data-table__cell--non-numeric'>".$item['username']."</td>
-              <td  class='mdl-data-table__cell--numeric'>".$item['email']."</td>
+              <td >".$item['firstname']."</td>
+              <td >".$item['lastname']."</td>
+              <td >".$item['username']."</td>
+              <td >".$item['email']."</td>
             </tr>
             ";//etc
         } ?>

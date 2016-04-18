@@ -8,6 +8,7 @@ session_start();
 
 <head>
   
+  
   <link rel="icon" href="https://itp-module-x14346081.c9users.io/images/header/logo2.png" type="image/png" sizes="16x16 32x32">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
@@ -23,20 +24,7 @@ session_start();
   
 </head>
 
- <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer ">
-  <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Title</span>
-    <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-    </nav>
-  </div>
-  <main class="mdl-layout__content">
-    <div class="page-content"><!-- Your content goes here --></div>
-  </main>
-</div>
+ 
 
 
 <body>
@@ -77,7 +65,7 @@ End Hamburger Menu-->
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation. We hide it in small screens. -->
-      <nav class="mdl-navigation mdl-layout--large-screen-only">
+      <nav class="mdl-navigation mdl-js-layout">
         <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/index.php">Available Rooms</a>
         <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/map.php">Floor Plan</a>
  
@@ -86,10 +74,12 @@ End Hamburger Menu-->
           if($_SESSION['admin']=="no"){
             ?>
              <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/bookings/bookingmanager.php">Booking Manager</a>
-        <?php } ?>
+        <?php 
+        } 
+        ?>
         
         <!-- Show 'Admin Manager' if admin is loggged in-->
-       <?php 
+        <?php 
           if($_SESSION['admin']=="yes"){
             ?>
             <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/admin/usermanager.php">User Manager</a>
@@ -100,7 +90,7 @@ End Hamburger Menu-->
         <?php 
         if(isset($_SESSION['user'])!=""){
           ?>
-         <a class="mdl-navigation__link" <p><strong><font color="white">Logged in as: <?php echo $_SESSION['user']; ?></font></strong></a></p>
+         <a class="mdl-navigation__link">Hello: <?php echo $_SESSION['user']; ?></font></strong></a>
          <a href="https://itp-module-x14346081.c9users.io/logout.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Logout</a>
       <?php } ?>
 
@@ -129,6 +119,4 @@ End Hamburger Menu-->
       <?php } ?>-->
       </h2></div>
   </div>
-  
-  
-  <!-- https://www.getmdl.io/components/index.html#layout-section -->
+  </html>

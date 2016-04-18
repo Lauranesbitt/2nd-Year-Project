@@ -151,43 +151,6 @@
 		background:#f9f9f9; 
 	}
 	
-	.box-right .image-box, image-box-last {	
-		width:50%;
-		right:0;
-  		top:0;	
-		height:100%;
-		padding:0;
-		position:absolute;	
-  		box-sizing:border-box;
-	}
-	.box-right .image-box.img{
-		background: url("../images/manage3.png") 100% 100% / cover no-repeat;	
-	}
-	.box-left .image-box.img2{
-		background: url('../images/map.png') 100% 100% / cover no-repeat;	
-	}
-	.box-right .image-box.img3{
-		background: url('../images/view3.png') 100% 100% / cover no-repeat;	
-	}
-	
-	.box-right .inner {
-		padding:0 6em 0 0;
-	}
-	
-	.box-left .image-box {	
-		width:50%;
-		left:0;
-  		top:0;	
-		height:100%;
-		padding:0;
-		position:absolute;	
-  		box-sizing:border-box;
-	}
-	
-	.box-left .inner {
-		padding:0 0 0 6em; 
-	}
-	
 	/* Features =================================== */
 	.features{
 		background: #fff;
@@ -228,12 +191,12 @@
 	/* Promo ==================================== */
 	
 	.promo {
-		background: #6C7A89 url('../../images/rooms/Theatre-3-1.jpg') 100% 60% / cover no-repeat;	
+		background: #6C7A89 url('../../images/rooms/Theatre3.jpg') 100% 60% / cover no-repeat;	
 		margin-bottom:-1px;
 		height:250px;
 	}
 	.headerBg {
-		background: #6C7A89 url('../../images/rooms/3.02-3.jpg') 100% 40% / cover no-repeat;	
+		background: #6C7A89 url('../../images/rooms/3.02.jpg') 100% 40% / cover no-repeat;	
 		margin-bottom:-1px;
 	}
 	.overlay{

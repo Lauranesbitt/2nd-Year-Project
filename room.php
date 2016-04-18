@@ -1,49 +1,3 @@
-<?php include_once 'admin/addRoom.php';
-
-
-session_start();
-if(isset($_SESSION['user'])=="")
-{
- echo "<script>alert('Please log-in to view this page.');</script>";
- echo "<script>window.location = 'login.php';</script>";
-}
-include_once 'classes/dbconnect.php';
-
-if( $_POST )
-{
-  $con = mysql_connect("localhost","x14346081","");
-
-  if (!$con)
-  {
-    die('Could not connect: ' . mysql_error());
-  }
-
-  mysql_select_db("c9", $con);
-
-  $room = $_POST['room'];
-  $location = $_POST['location'];
-  $capacity = $_POST['capacity'];
-  $type = $_POST['type'];
-$description = $_POST['description'];
-
-  $room = mysql_real_escape_string($room);
-  $location = mysql_real_escape_string($location);
-  $capacity = mysql_real_escape_string($capacity);
-  $type = mysql_real_escape_string($type);
-$description = mysql_real_escape_string($description);
-
- 
-
-  $query = "INSERT INTO `c9`.`rooms` (`room`, 'location',`capacity`, `type`,
-        `description`) VALUES (NULL, '$room',
-        '$location', '$capacity', '$type','$description');";
-
-  mysql_query($query);
-
-  echo "<h2>Thank you for your Comment!</h2>";
-
-  mysql_close($con);
-}?>
 <!-- Add a New Room -->
 <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--4-col"></div>
@@ -53,28 +7,46 @@ $description = mysql_real_escape_string($description);
         <h3>Add a New Room</h3>
         <hr/>
 <?php
-$con = mysql_connect("localhost","x14346081","");
-if (!$con)
-  {
-  die('Could not connect: ' . mysql_error());
-  }
- 
-mysql_select_db("c9", $con);
- 
-$sql="INSERT INTO rooms (room, location,capacity,type,description)
-VALUES
-('$_POST[room]','$_POST[location]','$_POST[capacity]','$_POST[type]','$_POST[description]')";
- 
-if (!mysql_query($sql,$con))
-  {
-  die('Error: ' . mysql_error());
-  }
-echo "1 record added";
- 
-mysql_close($con)
-?>
 
-        <!-- add booking form -->
+$host="localhost"; // Host name 
+$username="x14346081"; // Mysql username 
+$password=""; // Mysql password 
+$db_name="c9"; // Database name 
+$tbl_name="rooms"; // Table name 
+
+// Connect to server and select database.
+mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
+mysql_select_db("c9")or die("cannot select Database");
+
+if(isset($_POST['submit'])){
+// Get values from form 
+$room= $_POST['room'];
+$location= $_POST['location'];
+$capacity= $_POST['capacity'];
+$type= $_POST['type'];
+$description= $_POST['description'];
+
+
+// Insert data into mysql 
+$sql="INSERT INTO rooms(room, location, capacity, type, description)VALUES('$room', '$location', '$capacity', '$type', '$description')";
+
+$result = mysql_query($sql);
+
+
+// if successfully insert data into database, displays message "Successful". 
+if($result){
+echo "Successful";
+}
+
+else {
+echo "ERROR";
+}
+ 
+}
+// close connection 
+mysql_close();
+?> 
+<!-- add booking form -->
         <form method="post"> 
     
           <label for="room">Room Name/Number:</label></br>
@@ -100,20 +72,18 @@ mysql_close($con)
           <label for="description">Room Specifications:</label></br>
           <textarea name="description" placeholder="eg. 70 computers available" rows="6" cols="32" maxlength="150" required=""/></textarea></p>
           
+          <!--
           <label for="photo">Upload Room Photo:</label></br>
           <?php
             ini_set('mysql.connect_timeout',300);
             ini_set('default_socket_timeout',300);
             ?>
             
-            1.<input type="file" name="image" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light"></p>
+            <input type="file" name="image" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light"></p>-->
            
            <input name = "submit" type = "submit" 
                               id = "submit" value = "Submit">
         </form>
-        
-        
-                              
         
       </section><!-- section end -->
     </div><!-- column end -->
@@ -136,6 +106,7 @@ mysql_close($con)
             $dbpass = '';
             
             $con = mysql_connect($dbhost, $dbuser, $dbpass);
+            
             
             if(! $con ) {
                die('Could not connect: ' . mysql_error());
@@ -165,7 +136,8 @@ mysql_close($con)
             
             mysql_close($con);
          }
-          }  
+          } 
+
            
          else{   ?>
       <form method="post"> 
@@ -177,6 +149,9 @@ mysql_close($con)
               <option value="2nd Floor">3.02</option>
               <option value="3rd Floor">3.03</option>
               <option value="4th Floor">3.04</option>
+              <option value="4th Floor">SCR4</option>
+              <option value="4th Floor">1</option>
+
             </select>
             </p>
           
@@ -189,8 +164,10 @@ mysql_close($con)
           <label for="description">Update Room Specifications:</label></br>
           <textarea name="description" placeholder="eg. 70 computers available" rows="6" cols="32" maxlength="150"/></textarea></p>
           
+          <!--
           <label for="photo">Update Room Photo:</label></br>
               1.<input type="file" name="image" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light"></p>
+              -->
             
             
             <input name = "update" type = "submit" 
@@ -199,7 +176,8 @@ mysql_close($con)
             
         </form></p></br>
         <?php
-             }      
+             }    
+        
     ?>
          
     </section>

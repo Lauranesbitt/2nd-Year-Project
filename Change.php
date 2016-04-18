@@ -1,7 +1,7 @@
 
-<?php include_once 'changeLink.php';
 <?php
-// Connect to MySQL
+
+
     $username = "x14346081"; 
     $password = ""; 
     $host = "localhost"; 
