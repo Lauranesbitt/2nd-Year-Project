@@ -12,7 +12,9 @@ if($_SESSION['admin']=="no")
 	<div class="mdl-cell mdl-cell--8-col">
 		<h2>Room Manager</h2>
 		You can use this page to add new rooms and manage current ones.
+  <!--
   <p>User Manager: <a href="usermanager.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Enter</a></p>
+  -->
 </div>
 	<div class="mdl-cell mdl-cell--2-col"></div>
 </div>

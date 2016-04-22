@@ -10,9 +10,10 @@ if($_SESSION['admin']=="no")
 	<div class="mdl-cell mdl-cell--2-col"></div>
 	<div class="mdl-cell mdl-cell--8-col">
 		<h2>User Manager</h2>
-		You can use this page to manage registered users and their bookings.
+		You can use this page to view registered users and their bookings.
+		<!--
 		<p>Room Manager: <a href="roommanager.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Enter</a></p>
-
+  -->
   </div>
 	<div class="mdl-cell mdl-cell--2-col"></div>
 </div>
@@ -27,7 +28,7 @@ if($_SESSION['admin']=="no")
       <h3>Registered Users</h3>
       <hr/>
       
-      <p>Please select a user for more info:</p>
+      <p>You can view registered users below:</p>
       <?php include '../bookings/fetchRegistered.php'; ?>
     </section>
   </div>
@@ -45,7 +46,7 @@ if($_SESSION['admin']=="no")
       <h3>User Bookings</h3>
       <hr/>
       
-      <p>Please select a booking for more info:</p>
+      <p>You can view user bookings below:</p>
     <?php include '../bookings/fetchBookingsAdmin.php' ?>
     </section>
   </div>

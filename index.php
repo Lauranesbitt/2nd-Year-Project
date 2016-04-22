@@ -33,8 +33,8 @@
 		<!-- column start -->
 		<div class="mdl-cell mdl-cell--3-col panels  mdl-shadow--2dp">
 			<div class="inner align-centered overlay">
-				<h4>Manage your bookings</h4>
-				<p>Manage your own booking(s) that you've made!</p>
+				<h4>View your bookings</h4>
+				<p> View your own booking(s) that you have made!      </p>
 				<div class="align-centered">
 					<a href="bookings/bookingmanager.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"><span aria-hidden="true" class="arrow_carrot-up_alt2" ></span> Manage Bookings</a>
 				</div>

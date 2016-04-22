@@ -44,7 +44,10 @@
       
     </form>
     <h2>Available Rooms</h2>
+    To make a booking, click the button below:</p>
+    <!--
     To make a booking, select a room or click the button below:</p>
+    -->
     <a href="bookings/bookingmanager.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"><span aria-hidden="true" class="arrow_carrot-up_alt2" ></span> Book a Room</a></p>
 <!-- End Heading --> 
    <table id="mytable" class="footable mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">

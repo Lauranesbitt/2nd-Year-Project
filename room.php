@@ -16,7 +16,7 @@ $tbl_name="rooms"; // Table name
 
 // Connect to server and select database.
 mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
-mysql_select_db("c9")or die("cannot select Database");
+mysql_select_db("$db_name")or die("cannot select Database");
 
 if(isset($_POST['submit'])){
 // Get values from form 
@@ -47,7 +47,7 @@ echo "ERROR";
 mysql_close();
 ?> 
 <!-- add booking form -->
-        <form method="post"> 
+        <form action="addRoom.php" method="post"> 
     
           <label for="room">Room Name/Number:</label></br>
           <input name="room" type="text" placeholder="eg. SCR3" required=""></p>
@@ -81,8 +81,7 @@ mysql_close();
             
             <input type="file" name="image" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light"></p>-->
            
-           <input name = "submit" type = "submit" 
-                              id = "submit" value = "Submit">
+           <input name = "btn-addRoom" type = "submit" id = "btn-addRoom" value = "Add room"/>
         </form>
         
       </section><!-- section end -->

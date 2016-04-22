@@ -73,7 +73,7 @@ End Hamburger Menu-->
        <?php 
           if($_SESSION['admin']=="no"){
             ?>
-             <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/bookings/bookingmanager.php">Booking Manager</a>
+             <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/bookings/bookingmanager.php">Bookings</a>
         <?php 
         } 
         ?>
@@ -82,15 +82,15 @@ End Hamburger Menu-->
         <?php 
           if($_SESSION['admin']=="yes"){
             ?>
-            <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/admin/usermanager.php">User Manager</a>
-            <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/admin/roommanager.php">Room Manager</a>
+            <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/admin/usermanager.php">Users</a>
+            <a class="mdl-navigation__link" href="https://itp-module-x14346081.c9users.io/admin/roommanager.php">Rooms</a>
         <?php } ?>
         
         <!-- Show 'Logout' if user/admin is loggged in-->
         <?php 
         if(isset($_SESSION['user'])!=""){
           ?>
-         <a class="mdl-navigation__link">Hello: <?php echo $_SESSION['user']; ?></font></strong></a>
+         <a class="mdl-navigation__link"><?php echo $_SESSION['user']; ?></font></strong></a>
          <a href="https://itp-module-x14346081.c9users.io/logout.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Logout</a>
       <?php } ?>
 

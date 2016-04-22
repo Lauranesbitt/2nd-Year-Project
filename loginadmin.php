@@ -58,16 +58,19 @@ if(isset($_POST['btn-login']))
           <p><a href="forget.php" onclick="forget.php" id="forget">Forgot Password?</a></p>-->
           
         </form><!-- ./login form end -->
+        <!--
         <?php include 'extras.php' ?>
+        -->
       </section><!-- section end-->
     </div><!-- column end -->
     
-    
+    <!--
     <div class="mdl-cell mdl-cell--4-col">
          <section class="login-register">
              <a href="login.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light">User Login</a></p>
              <a href="register.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light">Register as User</a></p>
              <a href="registeradmin.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--light">Register as Admin</a>
+    -->
         </section><!-- section end--> 
     </div>
   </div>

@@ -237,10 +237,11 @@ if(isset($_SESSION['user'])=="")
       <h3>My Bookings</h3>
       <hr/>
       
-      <p>Please select a booking for more info:</p>
+      <p>You can view your bookings below:</p>
       <!-- Content -->  
       <?php include 'fetchBookings.php' ?>
-      <!-- Test Content -->
+      
+      <!-- Test Content
       You have made no bookings. Please create a booking at the top of this page.</p>
       OR</p>
       <hr/>
@@ -256,6 +257,7 @@ if(isset($_SESSION['user'])=="")
       <h4>Past Bookings</h4>
       <strong>Booking 1:</strong>     Tue 19/04/16     12:30       SCR3       4 seats <a href="https://itp-module-x14346081.c9users.io/index.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Book Again</a></p>
       <strong>Booking 2:</strong>     Wed 20/04/16     14:20       SCR4       9 seats <a href="https://itp-module-x14346081.c9users.io/index.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Book Again</a></p>
+    -->
     </section>
   </div>
       
