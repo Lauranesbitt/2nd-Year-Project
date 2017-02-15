@@ -12,7 +12,7 @@
 		<div class="mdl-cell mdl-cell--3-col panels  mdl-shadow--2dp">
 			<div class="inner align-centered overlay">
 				<h4>Login</h4>
-				<p>Login now to book a room within NCI college!</p>
+				<p>Login now to book a room within NCI!</p>
 				<div class="align-centered">
 					<a href="login.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"><span aria-hidden="true" class="arrow_carrot-up_alt2" ></span>Login</a>
 				</div>	
@@ -23,7 +23,7 @@
 		<div class="mdl-cell mdl-cell--3-col panels  mdl-shadow--2dp">
 			<div class="inner align-centered overlay">
 				<h4>Book a room</h4>
-				<p>Create your own room booking for your favourite room within the college!</p>
+				<p>Book your favourite rooms within the college!</p>
 				<div class="align-centered">
 					<a href="bookings/bookingmanager.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"><span aria-hidden="true" class="arrow_carrot-up_alt2" ></span> Make Booking</a>
 				</div>
@@ -34,9 +34,9 @@
 		<div class="mdl-cell mdl-cell--3-col panels  mdl-shadow--2dp">
 			<div class="inner align-centered overlay">
 				<h4>View your bookings</h4>
-				<p> View your own booking(s) that you have made!      </p>
+				<p> View bookings that you have made!      </p>
 				<div class="align-centered">
-					<a href="bookings/bookingmanager.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"><span aria-hidden="true" class="arrow_carrot-up_alt2" ></span> Manage Bookings</a>
+					<a href="bookings/bookingmanager.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"><span aria-hidden="true" class="arrow_carrot-up_alt2" ></span> View Bookings</a>
 				</div>
 				<!-- Primary-colored flat button -->
 				<!-- <a href="booking.php" class="mdl-button mdl-js-button mdl-button--primary"><span aria-hidden="true" class="arrow_carrot-up_alt2" ></span>Learn More</a>-->

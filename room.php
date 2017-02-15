@@ -213,12 +213,13 @@ mysql_close();
             
 
           ?>
+          
           <form method = "post">
          <label for="room">Room Name:</label></br>
           <input name="room" type="text" placeholder="eg. SCR3" required=""></p>
          <input name = "delete" type = "submit" 
                               id = "delete" value = "Delete">
-   </form>
+         </form>
     </section>
   </div>
       

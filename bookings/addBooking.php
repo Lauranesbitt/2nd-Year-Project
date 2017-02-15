@@ -1,5 +1,3 @@
-
-
 <?php
 
 include_once '../classes/dbconnect2.php';

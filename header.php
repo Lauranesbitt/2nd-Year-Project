@@ -4,7 +4,7 @@ include_once 'classes/dbconnect.php';
 session_start(); 
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   
@@ -104,6 +104,7 @@ End Hamburger Menu-->
      </nav>
     </div>
   </header>
+  
   <!-- content open -->
   <main class="mdl-layout__content">
     <div class="page-content">

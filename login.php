@@ -1,6 +1,3 @@
-
-	
-	
 <?php
 include_once 'classes/dbconnect.php';
 session_start();
@@ -33,8 +30,8 @@ if(isset($_POST['btn-login']))
         <?php
  }
 }
-
 ?>
+
 <?php include 'header.php';?>
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--4-col"></div>
