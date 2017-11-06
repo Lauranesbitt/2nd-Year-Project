@@ -1,6 +1,6 @@
 # 2nd Year Project 2: Dragon Room Bookings
 Description:
-- Dragon Room Bookings allows NCI students to find an unused room within the college and reserve a time slot to use the room for study
+- Dragon Room Bookings is a web applcation that allows NCI students to find an unused room within the college and reserve a time slot to use the room for study
 
 Instructions to view:
 - Visit: https://itp-module-x14346081.c9users.io/
