@@ -1,4 +1,4 @@
-# 2nd_Year_Project_2-Dragon_Room_Bookings
+# 2nd Year Project 2: Dragon Room Bookings
 2nd Year, Project 2:
 - Dragon Room Bookings Web Application
 
